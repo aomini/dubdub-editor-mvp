@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export async function proxy(req: NextRequest) {
+  console.log("CAlled proxy");
   const res = NextResponse.next({ request: req });
 
   if (req.method === "GET") {
@@ -10,7 +11,7 @@ export async function proxy(req: NextRequest) {
     if (req.nextUrl.pathname.endsWith("/edit")) {
       const pathWithoutEdit = req.nextUrl.pathname.slice(
         0,
-        req.nextUrl.pathname.length - 5
+        req.nextUrl.pathname.length - 5,
       );
       const pathWithEditPrefix = `/puck${pathWithoutEdit}`;
 
