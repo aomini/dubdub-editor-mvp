@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import type { Data, Plugin } from "@puckeditor/core";
 import { Drawer, Puck } from "@puckeditor/core";
 import {
@@ -45,19 +46,42 @@ const componentIcons: Record<string, React.ReactNode> = {
 
 const themeComponents = config.categories?.Theme?.components ?? [];
 
-const themePlugin: Plugin = {
-  name: "theme",
-  label: "Theme",
-  icon: <Palette size={20} />,
-  render: () => (
-    <div style={{ padding: "8px" }}>
+function ThemeDrawer() {
+  const [search, setSearch] = React.useState("");
+  const filtered = themeComponents.filter((name) =>
+    (name as string).toLowerCase().includes(search.toLowerCase()),
+  );
+  return (
+    <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px" }}>
+      <input
+        type="text"
+        placeholder="Search components..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        style={{
+          width: "100%",
+          padding: "6px 8px",
+          border: "1px solid #e5e7eb",
+          borderRadius: "6px",
+          fontSize: "12px",
+          outline: "none",
+          boxSizing: "border-box",
+        }}
+      />
       <Drawer>
-        {themeComponents.map((name) => (
+        {filtered.map((name) => (
           <Drawer.Item key={name as string} name={name as string} />
         ))}
       </Drawer>
     </div>
-  ),
+  );
+}
+
+const themePlugin: Plugin = {
+  name: "theme",
+  label: "Theme",
+  icon: <Palette size={20} />,
+  render: ThemeDrawer,
 };
 
 const itemStyle: React.CSSProperties = {
