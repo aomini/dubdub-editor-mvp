@@ -52,7 +52,14 @@ function ThemeDrawer() {
     (name as string).toLowerCase().includes(search.toLowerCase()),
   );
   return (
-    <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px" }}>
+    <div
+      style={{
+        padding: "8px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+      }}
+    >
       <input
         type="text"
         placeholder="Search components..."
@@ -108,11 +115,20 @@ export function Client({ path, data }: { path: string; data: Partial<Data> }) {
       plugins={[themePlugin]}
       overrides={{
         components: () => {
-          const visibleCategories = Object.entries(config.categories ?? {}).filter(
+          const visibleCategories = Object.entries(
+            config.categories ?? {},
+          ).filter(
             ([, cat]) => (cat as { visible?: boolean }).visible !== false,
           );
           return (
-            <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "16px" }}>
+            <div
+              style={{
+                padding: "8px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+              }}
+            >
               {visibleCategories.map(([groupName, category]) => (
                 <div key={groupName}>
                   <div
@@ -138,7 +154,9 @@ export function Client({ path, data }: { path: string; data: Partial<Data> }) {
                         <Drawer.Item key={name as string} name={name as string}>
                           {() => (
                             <div style={itemStyle}>
-                              {componentIcons[name as string] ?? <LayoutGrid size={18} />}
+                              {componentIcons[name as string] ?? (
+                                <LayoutGrid size={18} />
+                              )}
                               <span>{name as string}</span>
                             </div>
                           )}

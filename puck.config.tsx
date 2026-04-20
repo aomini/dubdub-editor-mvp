@@ -513,6 +513,7 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
       ),
     },
     Link: {
+      inline: true,
       fields: {
         text: { type: "text", contentEditable: true },
         href: { type: "text" },
@@ -533,8 +534,9 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
         rel: "",
         className: "",
       },
-      render: ({ text, href, target, rel, className }) => (
+      render: ({ puck, text, href, target, rel, className }) => (
         <a
+          ref={puck.dragRef}
           href={href}
           target={target}
           rel={rel || undefined}
@@ -577,6 +579,8 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
       render: ({ text, className }) => <p className={className}>{text}</p>,
     },
     Span: {
+      label: "Text",
+      inline: true,
       fields: {
         text: { type: "text", contentEditable: true },
         className: { type: "text" },
@@ -585,8 +589,10 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
         text: "Span text",
         className: "",
       },
-      render: ({ text, className }) => (
-        <span className={className}>{text}</span>
+      render: ({ puck, text, className }) => (
+        <span ref={puck.dragRef} className={className}>
+          {text}
+        </span>
       ),
     },
     Section: {
