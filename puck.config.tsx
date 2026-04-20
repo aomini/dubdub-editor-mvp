@@ -19,6 +19,55 @@ type NavLink = { label: string; href: string };
 type NavItem = { trigger: string; links: NavLink[] };
 
 type Props = {
+  Input: {
+    type: "text" | "email" | "password" | "number" | "tel" | "url" | "search";
+    placeholder: string;
+    name: string;
+    id: string;
+    disabled: boolean;
+    required: boolean;
+    className: string;
+  };
+  Img: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    objectFit: "contain" | "cover" | "fill" | "none" | "scale-down";
+    className: string;
+  };
+  Link: {
+    text: string;
+    href: string;
+    target: "_self" | "_blank" | "_parent" | "_top";
+    rel: string;
+    className: string;
+  };
+  Heading: {
+    text: string;
+    level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    className: string;
+  };
+  Paragraph: {
+    text: string;
+    className: string;
+  };
+  Span: {
+    text: string;
+    className: string;
+  };
+  Section: {
+    id: string;
+    className: string;
+    content: Slot;
+  };
+  Container: {
+    maxWidth: number;
+    padding: string;
+    id: string;
+    className: string;
+    content: Slot;
+  };
   TwoByTwo: {
     gap: number;
     leftColumn: Slot;
@@ -103,7 +152,19 @@ type Props = {
 
 const categoriesConfig = {
   Base: {
-    components: ["VerticalSpace", "Button", "RichText"] as (keyof Props)[],
+    components: [
+      "VerticalSpace",
+      "Button",
+      "RichText",
+      "Input",
+      "Img",
+      "Link",
+      "Heading",
+      "Paragraph",
+      "Span",
+      "Section",
+      "Container",
+    ] as (keyof Props)[],
   },
   Layout: {
     components: [
@@ -352,6 +413,218 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
               <Col12 />
             </div>
           )}
+        </div>
+      ),
+    },
+    Input: {
+      fields: {
+        type: {
+          type: "select",
+          options: [
+            "text",
+            "email",
+            "password",
+            "number",
+            "tel",
+            "url",
+            "search",
+          ].map((v) => ({ label: v, value: v })),
+        },
+        placeholder: { type: "text" },
+        name: { type: "text" },
+        id: { type: "text" },
+        disabled: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        required: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        type: "text",
+        placeholder: "Enter text...",
+        name: "",
+        id: "",
+        disabled: false,
+        required: false,
+        className: "",
+      },
+      render: ({
+        type,
+        placeholder,
+        name,
+        id,
+        disabled,
+        required,
+        className,
+      }) => (
+        <input
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          id={id}
+          disabled={disabled}
+          required={required}
+          className={className}
+        />
+      ),
+    },
+    Img: {
+      fields: {
+        src: { type: "text" },
+        alt: { type: "text" },
+        width: { type: "number" },
+        height: { type: "number" },
+        objectFit: {
+          type: "select",
+          options: ["contain", "cover", "fill", "none", "scale-down"].map(
+            (v) => ({ label: v, value: v }),
+          ),
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        src: "https://placehold.co/400x300",
+        alt: "Image",
+        width: 400,
+        height: 300,
+        objectFit: "cover",
+        className: "",
+      },
+      render: ({ src, alt, width, height, objectFit, className }) => (
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          style={{ objectFit }}
+          className={className}
+        />
+      ),
+    },
+    Link: {
+      fields: {
+        text: { type: "text" },
+        href: { type: "text" },
+        target: {
+          type: "select",
+          options: ["_self", "_blank", "_parent", "_top"].map((v) => ({
+            label: v,
+            value: v,
+          })),
+        },
+        rel: { type: "text" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        text: "Click here",
+        href: "#",
+        target: "_self",
+        rel: "",
+        className: "",
+      },
+      render: ({ text, href, target, rel, className }) => (
+        <a
+          href={href}
+          target={target}
+          rel={rel || undefined}
+          className={className}
+        >
+          {text}
+        </a>
+      ),
+    },
+    Heading: {
+      fields: {
+        text: { type: "text" },
+        level: {
+          type: "select",
+          options: ["h1", "h2", "h3", "h4", "h5", "h6"].map((v) => ({
+            label: v.toUpperCase(),
+            value: v,
+          })),
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        text: "Heading",
+        level: "h2",
+        className: "",
+      },
+      render: ({ text, level: Tag, className }) => (
+        <Tag className={className}>{text}</Tag>
+      ),
+    },
+    Paragraph: {
+      fields: {
+        text: { type: "text" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        text: "Paragraph text goes here.",
+        className: "",
+      },
+      render: ({ text, className }) => <p className={className}>{text}</p>,
+    },
+    Span: {
+      fields: {
+        text: { type: "text" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        text: "Span text",
+        className: "",
+      },
+      render: ({ text, className }) => (
+        <span className={className}>{text}</span>
+      ),
+    },
+    Section: {
+      fields: {
+        id: { type: "text" },
+        className: { type: "text" },
+        content: { type: "slot" },
+      },
+      defaultProps: {
+        id: "",
+        className: "",
+      } as Props["Section"],
+      render: ({ id, className, content: Content }) => (
+        <section id={id || undefined} className={className}>
+          <Content />
+        </section>
+      ),
+    },
+    Container: {
+      fields: {
+        maxWidth: { type: "number" },
+        padding: { type: "text" },
+        id: { type: "text" },
+        className: { type: "text" },
+        content: { type: "slot" },
+      },
+      defaultProps: {
+        maxWidth: 1200,
+        padding: "16px",
+        id: "",
+        className: "",
+      } as Props["Container"],
+      render: ({ maxWidth, padding, id, className, content: Content }) => (
+        <div
+          id={id || undefined}
+          className={className}
+          style={{ maxWidth, padding, margin: "0 auto", width: "100%" }}
+        >
+          <Content />
         </div>
       ),
     },
