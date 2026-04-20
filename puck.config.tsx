@@ -177,6 +177,7 @@ const categoriesConfig = {
   Theme: {
     components: ["NavigationMenuBlock"] as (keyof Props)[],
     defaultExpanded: false,
+    visible: false,
   },
   layoutDisallow: {
     components: ["NavigationMenuBlock"] as (keyof Props)[],
@@ -430,7 +431,7 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
             "search",
           ].map((v) => ({ label: v, value: v })),
         },
-        placeholder: { type: "text" },
+        placeholder: { type: "text", contentEditable: true },
         name: { type: "text" },
         id: { type: "text" },
         disabled: {
@@ -513,7 +514,7 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
     },
     Link: {
       fields: {
-        text: { type: "text" },
+        text: { type: "text", contentEditable: true },
         href: { type: "text" },
         target: {
           type: "select",
@@ -545,7 +546,7 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
     },
     Heading: {
       fields: {
-        text: { type: "text" },
+        text: { type: "text", contentEditable: true },
         level: {
           type: "select",
           options: ["h1", "h2", "h3", "h4", "h5", "h6"].map((v) => ({
@@ -566,7 +567,7 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
     },
     Paragraph: {
       fields: {
-        text: { type: "text" },
+        text: { type: "text", contentEditable: true },
         className: { type: "text" },
       },
       defaultProps: {
@@ -577,7 +578,7 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
     },
     Span: {
       fields: {
-        text: { type: "text" },
+        text: { type: "text", contentEditable: true },
         className: { type: "text" },
       },
       defaultProps: {
@@ -650,7 +651,7 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
     Button: {
       fields: {
         className: { type: "text" },
-        label: { type: "text" },
+        label: { type: "text", contentEditable: true },
         variant: {
           type: "select",
           options: [
