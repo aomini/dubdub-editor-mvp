@@ -1,4 +1,4 @@
-import type { Config, Slot } from "@puckeditor/core";
+import type { Config, RichText, Slot } from "@puckeditor/core";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -10,7 +10,6 @@ import {
 } from "./components/ui/navigation-menu";
 import { Button } from "./components/ui/button";
 import { cn } from "./lib/utils";
-import classNames from "classnames";
 
 type RootProps = {
   title: string;
@@ -37,6 +36,37 @@ type Props = {
     col2: Slot;
     col3: Slot;
     col4: Slot;
+  };
+  FluidColumns: {
+    gap: number;
+    numColumns: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+    col1Span: number;
+    col2Span: number;
+    col3Span: number;
+    col4Span: number;
+    col5Span: number;
+    col6Span: number;
+    col7Span: number;
+    col8Span: number;
+    col9Span: number;
+    col10Span: number;
+    col11Span: number;
+    col12Span: number;
+    col1: Slot;
+    col2: Slot;
+    col3: Slot;
+    col4: Slot;
+    col5: Slot;
+    col6: Slot;
+    col7: Slot;
+    col8: Slot;
+    col9: Slot;
+    col10: Slot;
+    col11: Slot;
+    col12: Slot;
+  };
+  RichText: {
+    body: RichText;
   };
   VerticalSpace: {
     classNames: string;
@@ -73,14 +103,23 @@ type Props = {
 
 const categoriesConfig = {
   Base: {
-    components: ["VerticalSpace", "Button"] as (keyof Props)[],
+    components: ["VerticalSpace", "Button", "RichText"] as (keyof Props)[],
   },
   Layout: {
-    components: ["TwoByTwo", "ThreeColumns", "FourColumns"] as (keyof Props)[],
+    components: [
+      "TwoByTwo",
+      "ThreeColumns",
+      "FourColumns",
+      "FluidColumns",
+    ] as (keyof Props)[],
   },
   Theme: {
     components: ["NavigationMenuBlock"] as (keyof Props)[],
     defaultExpanded: false,
+  },
+  layoutDisallow: {
+    components: ["NavigationMenuBlock"] as (keyof Props)[],
+    visible: false,
   },
 };
 
@@ -92,9 +131,13 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
       fields: {
         gap: { type: "number" },
         leftColumn: {
+          disallow: categoriesConfig.layoutDisallow.components,
           type: "slot",
         },
-        rightColumn: { type: "slot" },
+        rightColumn: {
+          type: "slot",
+          disallow: categoriesConfig.layoutDisallow.components,
+        },
       },
       defaultProps: {
         gap: 16,
@@ -161,6 +204,162 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
           <Col4 />
         </div>
       ),
+    },
+    FluidColumns: {
+      label: "Fluid Columns",
+      fields: {
+        gap: { type: "number" },
+        numColumns: {
+          type: "select",
+          options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
+            label: `${n} Column${n > 1 ? "s" : ""}`,
+            value: n,
+          })),
+        },
+        col1Span: { type: "number" },
+        col2Span: { type: "number" },
+        col3Span: { type: "number" },
+        col4Span: { type: "number" },
+        col5Span: { type: "number" },
+        col6Span: { type: "number" },
+        col7Span: { type: "number" },
+        col8Span: { type: "number" },
+        col9Span: { type: "number" },
+        col10Span: { type: "number" },
+        col11Span: { type: "number" },
+        col12Span: { type: "number" },
+        col1: { type: "slot" },
+        col2: { type: "slot" },
+        col3: { type: "slot" },
+        col4: { type: "slot" },
+        col5: { type: "slot" },
+        col6: { type: "slot" },
+        col7: { type: "slot" },
+        col8: { type: "slot" },
+        col9: { type: "slot" },
+        col10: { type: "slot" },
+        col11: { type: "slot" },
+        col12: { type: "slot" },
+      },
+      defaultProps: {
+        gap: 16,
+        numColumns: 2,
+        col1Span: 6,
+        col2Span: 6,
+        col3Span: 4,
+        col4Span: 3,
+        col5Span: 2,
+        col6Span: 2,
+        col7Span: 2,
+        col8Span: 2,
+        col9Span: 1,
+        col10Span: 1,
+        col11Span: 1,
+        col12Span: 1,
+      } as Props["FluidColumns"],
+      render: ({
+        gap,
+        numColumns,
+        col1Span,
+        col2Span,
+        col3Span,
+        col4Span,
+        col5Span,
+        col6Span,
+        col7Span,
+        col8Span,
+        col9Span,
+        col10Span,
+        col11Span,
+        col12Span,
+        col1: Col1,
+        col2: Col2,
+        col3: Col3,
+        col4: Col4,
+        col5: Col5,
+        col6: Col6,
+        col7: Col7,
+        col8: Col8,
+        col9: Col9,
+        col10: Col10,
+        col11: Col11,
+        col12: Col12,
+      }) => (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 1fr)",
+            gap,
+          }}
+        >
+          {numColumns >= 1 && (
+            <div style={{ gridColumn: `span ${col1Span}` }}>
+              <Col1 />
+            </div>
+          )}
+          {numColumns >= 2 && (
+            <div style={{ gridColumn: `span ${col2Span}` }}>
+              <Col2 />
+            </div>
+          )}
+          {numColumns >= 3 && (
+            <div style={{ gridColumn: `span ${col3Span}` }}>
+              <Col3 />
+            </div>
+          )}
+          {numColumns >= 4 && (
+            <div style={{ gridColumn: `span ${col4Span}` }}>
+              <Col4 />
+            </div>
+          )}
+          {numColumns >= 5 && (
+            <div style={{ gridColumn: `span ${col5Span}` }}>
+              <Col5 />
+            </div>
+          )}
+          {numColumns >= 6 && (
+            <div style={{ gridColumn: `span ${col6Span}` }}>
+              <Col6 />
+            </div>
+          )}
+          {numColumns >= 7 && (
+            <div style={{ gridColumn: `span ${col7Span}` }}>
+              <Col7 />
+            </div>
+          )}
+          {numColumns >= 8 && (
+            <div style={{ gridColumn: `span ${col8Span}` }}>
+              <Col8 />
+            </div>
+          )}
+          {numColumns >= 9 && (
+            <div style={{ gridColumn: `span ${col9Span}` }}>
+              <Col9 />
+            </div>
+          )}
+          {numColumns >= 10 && (
+            <div style={{ gridColumn: `span ${col10Span}` }}>
+              <Col10 />
+            </div>
+          )}
+          {numColumns >= 11 && (
+            <div style={{ gridColumn: `span ${col11Span}` }}>
+              <Col11 />
+            </div>
+          )}
+          {numColumns >= 12 && (
+            <div style={{ gridColumn: `span ${col12Span}` }}>
+              <Col12 />
+            </div>
+          )}
+        </div>
+      ),
+    },
+    RichText: {
+      fields: {
+        body: { type: "richtext", contentEditable: true },
+      },
+      render: ({ body }) => <div style={{ padding: "40px" }}>{body}</div>,
     },
     VerticalSpace: {
       fields: {
