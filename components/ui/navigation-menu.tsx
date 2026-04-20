@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, ShoppingCartIcon } from "lucide-react";
 
 function NavigationMenu({
   className,
@@ -154,6 +154,22 @@ function NavigationMenuIndicator({
   );
 }
 
+function NavigationMenuCartIcon({ className }: { className?: string }) {
+  return (
+    <a
+      href="/cart"
+      data-slot="navigation-menu-cart"
+      className={cn(
+        "inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm transition-all outline-none hover:bg-muted focus:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50",
+        className,
+      )}
+      aria-label="Cart"
+    >
+      <ShoppingCartIcon className="size-4" />
+    </a>
+  );
+}
+
 export {
   NavigationMenu,
   NavigationMenuList,
@@ -163,5 +179,6 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
+  NavigationMenuCartIcon,
   navigationMenuTriggerStyle,
 };

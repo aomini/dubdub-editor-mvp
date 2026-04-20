@@ -7,6 +7,7 @@ import {
   NavigationMenuContent,
   NavigationMenuLink,
   NavigationMenuIndicator,
+  NavigationMenuCartIcon,
 } from "./components/ui/navigation-menu";
 import { Button } from "./components/ui/button";
 import { ProductCard } from "./components/ui/product-card";
@@ -14,6 +15,18 @@ import { HeroBanner } from "./components/ui/hero-banner";
 import { Testimonial } from "./components/ui/testimonial";
 import { PricingCard } from "./components/ui/pricing-card";
 import { AnnouncementBar } from "./components/ui/announcement-bar";
+import { SpotlightCard } from "./components/ui/spotlight-card";
+import { FeaturedCollection } from "./components/ui/featured-collection";
+import { CountdownBanner } from "./components/ui/countdown-banner";
+import { TrustBadges } from "./components/ui/trust-badges";
+import { NewsletterSignup } from "./components/ui/newsletter-signup";
+import { CategoryGrid } from "./components/ui/category-grid";
+import { Footer } from "./components/ui/footer";
+import { PdpImageGallery } from "./components/ui/pdp-image-gallery";
+import { PdpProductInfo } from "./components/ui/pdp-product-info";
+import { PdpVariantSelector } from "./components/ui/pdp-variant-selector";
+import { PdpAddToCart } from "./components/ui/pdp-add-to-cart";
+import { PdpReviews } from "./components/ui/pdp-reviews";
 import { cn } from "./lib/utils";
 
 type RootProps = {
@@ -202,6 +215,137 @@ type Props = {
     variant: "default" | "primary" | "destructive";
     className: string;
   };
+  SpotlightCard: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    icon: string;
+    ctaLabel: string;
+    spotlightColor: string;
+    borderGlow: boolean;
+    className: string;
+  };
+  FeaturedCollection: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    imageSrc: string;
+    imageAlt: string;
+    layout: "image-left" | "image-right";
+    accentColor: string;
+    className: string;
+  };
+  CountdownBanner: {
+    headline: string;
+    subline: string;
+    ctaLabel: string;
+    ctaHref: string;
+    targetDate: string;
+    bgColor: string;
+    textColor: string;
+    className: string;
+  };
+  TrustBadges: {
+    badges: { icon: string; title: string; subtitle: string }[];
+    layout: "row" | "grid";
+    showDividers: boolean;
+    className: string;
+  };
+  NewsletterSignup: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    placeholder: string;
+    ctaLabel: string;
+    disclaimer: string;
+    bgColor: string;
+    accentColor: string;
+    align: "left" | "center";
+    className: string;
+  };
+  CategoryGrid: {
+    title: string;
+    subtitle: string;
+    categories: { imageSrc: string; label: string; href: string }[];
+    columns: 2 | 3 | 4;
+    aspectRatio: "square" | "portrait" | "landscape";
+    className: string;
+  };
+  PdpImageGallery: {
+    images: { src: string; alt: string }[];
+    aspectRatio: "square" | "portrait" | "landscape";
+    enableZoom: boolean;
+    className: string;
+  };
+  PdpProductInfo: {
+    brand: string;
+    title: string;
+    price: string;
+    originalPrice: string;
+    badge: string;
+    badgeColor: string;
+    rating: number;
+    reviewCount: number;
+    description: string;
+    sku: string;
+    className: string;
+  };
+  PdpVariantSelector: {
+    colorLabel: string;
+    colors: { name: string; hex: string }[];
+    sizeLabel: string;
+    sizes: { label: string; available: boolean }[];
+    showSizeGuide: boolean;
+    className: string;
+  };
+  PdpAddToCart: {
+    ctaLabel: string;
+    wishlistLabel: string;
+    showWishlist: boolean;
+    showQuantity: boolean;
+    accentColor: string;
+    stockCount: number;
+    className: string;
+  };
+  PdpReviews: {
+    heading: string;
+    averageRating: number;
+    totalReviews: number;
+    reviews: {
+      author: string;
+      rating: number;
+      date: string;
+      title: string;
+      body: string;
+      verified: boolean;
+    }[];
+    accentColor: string;
+    className: string;
+  };
+  Footer: {
+    brandName: string;
+    tagline: string;
+    columns: { heading: string; links: { label: string; href: string }[] }[];
+    socialLinks: {
+      platform:
+        | "instagram"
+        | "twitter"
+        | "facebook"
+        | "youtube"
+        | "github"
+        | "linkedin";
+      href: string;
+    }[];
+    copyrightText: string;
+    bgColor: string;
+    accentColor: string;
+    showNewsletter: boolean;
+    newsletterPlaceholder: string;
+    newsletterCtaLabel: string;
+    className: string;
+  };
 };
 
 const categoriesConfig = {
@@ -244,6 +388,24 @@ const categoriesConfig = {
       "Testimonial",
       "PricingCard",
       "AnnouncementBar",
+      "FeaturedCollection",
+      "CountdownBanner",
+      "TrustBadges",
+      "NewsletterSignup",
+      "CategoryGrid",
+      "Footer",
+    ] as (keyof Props)[],
+  },
+  Interactive: {
+    components: ["SpotlightCard"] as (keyof Props)[],
+  },
+  "Product Details": {
+    components: [
+      "PdpImageGallery",
+      "PdpProductInfo",
+      "PdpVariantSelector",
+      "PdpAddToCart",
+      "PdpReviews",
     ] as (keyof Props)[],
   },
 };
@@ -904,6 +1066,37 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
       },
       render: (props) => <PricingCard {...props} />,
     },
+    SpotlightCard: {
+      label: "Spotlight Card",
+      fields: {
+        eyebrow: { type: "text", contentEditable: true },
+        title: { type: "text", contentEditable: true },
+        description: { type: "text", contentEditable: true },
+        icon: { type: "text" },
+        ctaLabel: { type: "text", contentEditable: true },
+        spotlightColor: { type: "text" },
+        borderGlow: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        eyebrow: "New Feature",
+        title: "Interactive Spotlight Card",
+        description:
+          "Hover over this card to see the spotlight effect follow your cursor in real time.",
+        icon: "✨",
+        ctaLabel: "Learn More",
+        spotlightColor: "#6366f1",
+        borderGlow: true,
+        className: "",
+      },
+      render: (props) => <SpotlightCard {...props} />,
+    },
     AnnouncementBar: {
       fields: {
         text: { type: "text", contentEditable: true },
@@ -927,6 +1120,596 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
         className: "",
       },
       render: (props) => <AnnouncementBar {...props} />,
+    },
+    FeaturedCollection: {
+      label: "Featured Collection",
+      fields: {
+        eyebrow: { type: "text", contentEditable: true },
+        title: { type: "text", contentEditable: true },
+        description: { type: "text", contentEditable: true },
+        ctaLabel: { type: "text", contentEditable: true },
+        ctaHref: { type: "text" },
+        imageSrc: { type: "text" },
+        imageAlt: { type: "text" },
+        layout: {
+          type: "select",
+          options: [
+            { label: "Image Left", value: "image-left" },
+            { label: "Image Right", value: "image-right" },
+          ],
+        },
+        accentColor: { type: "text" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        eyebrow: "New Arrivals",
+        title: "Summer Collection 2025",
+        description:
+          "Discover our hand-curated selection of this season's must-have pieces. Crafted with premium materials and designed to last.",
+        ctaLabel: "Shop the Collection",
+        ctaHref: "#",
+        imageSrc: "https://placehold.co/800x600",
+        imageAlt: "Featured collection",
+        layout: "image-left",
+        accentColor: "#6366f1",
+        className: "",
+      },
+      render: (props) => <FeaturedCollection {...props} />,
+    },
+    CountdownBanner: {
+      label: "Countdown Banner",
+      fields: {
+        headline: { type: "text", contentEditable: true },
+        subline: { type: "text", contentEditable: true },
+        ctaLabel: { type: "text", contentEditable: true },
+        ctaHref: { type: "text" },
+        targetDate: { type: "text" },
+        bgColor: { type: "text" },
+        textColor: { type: "text" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        headline: "Flash Sale Ends In",
+        subline: "Up to 60% off sitewide — don't miss out!",
+        ctaLabel: "Shop Now",
+        ctaHref: "#",
+        targetDate: new Date(
+          Date.now() + 3 * 24 * 60 * 60 * 1000,
+        ).toISOString(),
+        bgColor: "#1e1b4b",
+        textColor: "#ffffff",
+        className: "",
+      },
+      render: (props) => <CountdownBanner {...props} />,
+    },
+    TrustBadges: {
+      label: "Trust Badges",
+      fields: {
+        badges: {
+          type: "array",
+          arrayFields: {
+            icon: { type: "text" },
+            title: { type: "text" },
+            subtitle: { type: "text" },
+          },
+          defaultItemProps: {
+            icon: "✅",
+            title: "Feature",
+            subtitle: "Description",
+          },
+        },
+        layout: {
+          type: "select",
+          options: [
+            { label: "Row", value: "row" },
+            { label: "Grid", value: "grid" },
+          ],
+        },
+        showDividers: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        badges: [
+          {
+            icon: "🚚",
+            title: "Free Shipping",
+            subtitle: "On orders over $50",
+          },
+          {
+            icon: "🔄",
+            title: "Easy Returns",
+            subtitle: "30-day hassle-free returns",
+          },
+          {
+            icon: "🔒",
+            title: "Secure Checkout",
+            subtitle: "256-bit SSL encryption",
+          },
+          {
+            icon: "⭐",
+            title: "4.9/5 Rating",
+            subtitle: "From 10,000+ reviews",
+          },
+        ],
+        layout: "row",
+        showDividers: true,
+        className: "",
+      },
+      render: (props) => <TrustBadges {...props} />,
+    },
+    NewsletterSignup: {
+      label: "Newsletter Signup",
+      fields: {
+        eyebrow: { type: "text", contentEditable: true },
+        title: { type: "text", contentEditable: true },
+        description: { type: "text", contentEditable: true },
+        placeholder: { type: "text" },
+        ctaLabel: { type: "text", contentEditable: true },
+        disclaimer: { type: "text", contentEditable: true },
+        bgColor: { type: "text" },
+        accentColor: { type: "text" },
+        align: {
+          type: "select",
+          options: [
+            { label: "Left", value: "left" },
+            { label: "Center", value: "center" },
+          ],
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        eyebrow: "Stay in the loop",
+        title: "Get exclusive deals & new arrivals",
+        description:
+          "Join 50,000+ shoppers and be the first to know about sales, new products, and style tips.",
+        placeholder: "Enter your email address",
+        ctaLabel: "Subscribe",
+        disclaimer: "No spam, unsubscribe at any time.",
+        bgColor: "#f8fafc",
+        accentColor: "#6366f1",
+        align: "center",
+        className: "",
+      },
+      render: (props) => <NewsletterSignup {...props} />,
+    },
+    CategoryGrid: {
+      label: "Category Grid",
+      fields: {
+        title: { type: "text", contentEditable: true },
+        subtitle: { type: "text", contentEditable: true },
+        categories: {
+          type: "array",
+          arrayFields: {
+            imageSrc: { type: "text" },
+            label: { type: "text" },
+            href: { type: "text" },
+          },
+          defaultItemProps: {
+            imageSrc: "https://placehold.co/400x400",
+            label: "Category",
+            href: "#",
+          },
+        },
+        columns: {
+          type: "select",
+          options: [
+            { label: "2 Columns", value: 2 },
+            { label: "3 Columns", value: 3 },
+            { label: "4 Columns", value: 4 },
+          ],
+        },
+        aspectRatio: {
+          type: "select",
+          options: [
+            { label: "Square", value: "square" },
+            { label: "Portrait", value: "portrait" },
+            { label: "Landscape", value: "landscape" },
+          ],
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        title: "Shop by Category",
+        subtitle: "Find exactly what you're looking for",
+        categories: [
+          {
+            imageSrc: "https://placehold.co/400x400",
+            label: "Women's",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x400",
+            label: "Men's",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x400",
+            label: "Accessories",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x400",
+            label: "Sale",
+            href: "#",
+          },
+        ],
+        columns: 4,
+        aspectRatio: "portrait",
+        className: "",
+      },
+      render: (props) => <CategoryGrid {...props} />,
+    },
+    Footer: {
+      label: "Footer",
+      fields: {
+        brandName: { type: "text", contentEditable: true },
+        tagline: { type: "text", contentEditable: true },
+        columns: {
+          type: "array",
+          arrayFields: {
+            heading: { type: "text" },
+            links: {
+              type: "array",
+              arrayFields: {
+                label: { type: "text" },
+                href: { type: "text" },
+              },
+              defaultItemProps: { label: "Link", href: "#" },
+            },
+          },
+          defaultItemProps: {
+            heading: "Column",
+            links: [{ label: "Link", href: "#" }],
+          },
+        },
+        socialLinks: {
+          type: "array",
+          arrayFields: {
+            platform: {
+              type: "select",
+              options: [
+                { label: "Instagram", value: "instagram" },
+                { label: "Twitter / X", value: "twitter" },
+                { label: "Facebook", value: "facebook" },
+                { label: "YouTube", value: "youtube" },
+                { label: "GitHub", value: "github" },
+                { label: "LinkedIn", value: "linkedin" },
+              ],
+            },
+            href: { type: "text" },
+          },
+          defaultItemProps: { platform: "instagram", href: "#" },
+        },
+        copyrightText: { type: "text", contentEditable: true },
+        bgColor: { type: "text" },
+        accentColor: { type: "text" },
+        showNewsletter: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        newsletterPlaceholder: { type: "text" },
+        newsletterCtaLabel: { type: "text", contentEditable: true },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        brandName: "YourBrand",
+        tagline:
+          "Premium products, delivered to your door. Quality you can trust.",
+        columns: [
+          {
+            heading: "Shop",
+            links: [
+              { label: "New Arrivals", href: "#" },
+              { label: "Best Sellers", href: "#" },
+              { label: "Sale", href: "#" },
+              { label: "Collections", href: "#" },
+            ],
+          },
+          {
+            heading: "Help",
+            links: [
+              { label: "FAQ", href: "#" },
+              { label: "Shipping", href: "#" },
+              { label: "Returns", href: "#" },
+              { label: "Track Order", href: "#" },
+            ],
+          },
+          {
+            heading: "Company",
+            links: [
+              { label: "About Us", href: "#" },
+              { label: "Blog", href: "#" },
+              { label: "Careers", href: "#" },
+              { label: "Press", href: "#" },
+            ],
+          },
+          {
+            heading: "Legal",
+            links: [
+              { label: "Privacy Policy", href: "#" },
+              { label: "Terms of Service", href: "#" },
+              { label: "Cookie Policy", href: "#" },
+            ],
+          },
+        ],
+        socialLinks: [
+          { platform: "instagram", href: "#" },
+          { platform: "twitter", href: "#" },
+          { platform: "facebook", href: "#" },
+        ],
+        copyrightText: `© ${new Date().getFullYear()} YourBrand. All rights reserved.`,
+        bgColor: "#0f0f0f",
+        accentColor: "#6366f1",
+        showNewsletter: true,
+        newsletterPlaceholder: "Enter your email",
+        newsletterCtaLabel: "Subscribe",
+        className: "",
+      },
+      render: (props) => <Footer {...props} />,
+    },
+    PdpImageGallery: {
+      label: "PDP Image Gallery",
+      fields: {
+        images: {
+          type: "array",
+          arrayFields: {
+            src: { type: "text" },
+            alt: { type: "text" },
+          },
+          defaultItemProps: {
+            src: "https://placehold.co/800x800",
+            alt: "Product image",
+          },
+        },
+        aspectRatio: {
+          type: "select",
+          options: [
+            { label: "Square", value: "square" },
+            { label: "Portrait (3:4)", value: "portrait" },
+            { label: "Landscape (4:3)", value: "landscape" },
+          ],
+        },
+        enableZoom: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        images: [
+          { src: "https://placehold.co/800x800", alt: "Product front" },
+          {
+            src: "https://placehold.co/800x800/e2e8f0/64748b",
+            alt: "Product back",
+          },
+          {
+            src: "https://placehold.co/800x800/f0fdf4/16a34a",
+            alt: "Product detail",
+          },
+        ],
+        aspectRatio: "square",
+        enableZoom: true,
+        className: "",
+      },
+      render: (props) => <PdpImageGallery {...props} />,
+    },
+    PdpProductInfo: {
+      label: "PDP Product Info",
+      fields: {
+        brand: { type: "text", contentEditable: true },
+        title: { type: "text", contentEditable: true },
+        price: { type: "text" },
+        originalPrice: { type: "text" },
+        badge: { type: "text", contentEditable: true },
+        badgeColor: { type: "text" },
+        rating: {
+          type: "select",
+          options: [1, 2, 3, 4, 5].map((n) => ({
+            label: `${n} stars`,
+            value: n,
+          })),
+        },
+        reviewCount: { type: "number" },
+        description: { type: "text", contentEditable: true },
+        sku: { type: "text" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        brand: "ACME Studio",
+        title: "Premium Leather Crossbody Bag",
+        price: "$129",
+        originalPrice: "$189",
+        badge: "Best Seller",
+        badgeColor: "#6366f1",
+        rating: 4,
+        reviewCount: 2847,
+        description:
+          'Handcrafted from full-grain leather with a minimalist silhouette. Fits a 13" laptop, has an interior zip pocket, and adjustable strap.',
+        sku: "ACM-LCB-001",
+        className: "",
+      } as Props["PdpProductInfo"],
+      render: (props) => <PdpProductInfo {...props} />,
+    },
+    PdpVariantSelector: {
+      label: "PDP Variant Selector",
+      fields: {
+        colorLabel: { type: "text" },
+        colors: {
+          type: "array",
+          arrayFields: {
+            name: { type: "text" },
+            hex: { type: "text" },
+          },
+          defaultItemProps: { name: "Color", hex: "#000000" },
+        },
+        sizeLabel: { type: "text" },
+        sizes: {
+          type: "array",
+          arrayFields: {
+            label: { type: "text" },
+            available: {
+              type: "radio",
+              options: [
+                { label: "In Stock", value: true },
+                { label: "Out of Stock", value: false },
+              ],
+            },
+          },
+          defaultItemProps: { label: "M", available: true },
+        },
+        showSizeGuide: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        colorLabel: "Color",
+        colors: [
+          { name: "Midnight Black", hex: "#1a1a1a" },
+          { name: "Tan", hex: "#c8956c" },
+          { name: "Navy", hex: "#1e3a5f" },
+          { name: "Forest Green", hex: "#2d5a27" },
+        ],
+        sizeLabel: "Size",
+        sizes: [
+          { label: "XS", available: true },
+          { label: "S", available: true },
+          { label: "M", available: true },
+          { label: "L", available: false },
+          { label: "XL", available: true },
+        ],
+        showSizeGuide: true,
+        className: "",
+      },
+      render: (props) => <PdpVariantSelector {...props} />,
+    },
+    PdpAddToCart: {
+      label: "PDP Add to Cart",
+      fields: {
+        ctaLabel: { type: "text", contentEditable: true },
+        wishlistLabel: { type: "text" },
+        showWishlist: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        showQuantity: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        accentColor: { type: "text" },
+        stockCount: { type: "number" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        ctaLabel: "Add to Cart",
+        wishlistLabel: "Save to Wishlist",
+        showWishlist: true,
+        showQuantity: true,
+        accentColor: "#6366f1",
+        stockCount: 7,
+        className: "",
+      },
+      render: (props) => <PdpAddToCart {...props} />,
+    },
+    PdpReviews: {
+      label: "PDP Reviews",
+      fields: {
+        heading: { type: "text", contentEditable: true },
+        averageRating: {
+          type: "select",
+          options: [1, 2, 3, 4, 5].map((n) => ({ label: `${n}.0`, value: n })),
+        },
+        totalReviews: { type: "number" },
+        reviews: {
+          type: "array",
+          arrayFields: {
+            author: { type: "text" },
+            rating: {
+              type: "select",
+              options: [1, 2, 3, 4, 5].map((n) => ({
+                label: `${n} stars`,
+                value: n,
+              })),
+            },
+            date: { type: "text" },
+            title: { type: "text" },
+            body: { type: "text" },
+            verified: {
+              type: "radio",
+              options: [
+                { label: "Yes", value: true },
+                { label: "No", value: false },
+              ],
+            },
+          },
+          defaultItemProps: {
+            author: "Customer",
+            rating: 5,
+            date: "Jan 2025",
+            title: "Great product!",
+            body: "Loved it.",
+            verified: true,
+          },
+        },
+        accentColor: { type: "text" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        heading: "Customer Reviews",
+        averageRating: 4,
+        totalReviews: 2847,
+        reviews: [
+          {
+            author: "Sarah M.",
+            rating: 5,
+            date: "March 2025",
+            title: "Absolutely love this bag!",
+            body: "The leather quality is incredible — soft yet durable. I use it daily and it only looks better with age.",
+            verified: true,
+          },
+          {
+            author: "James K.",
+            rating: 4,
+            date: "February 2025",
+            title: "Great everyday carry",
+            body: "Fits my laptop, charger, and notebook with room to spare. The strap is comfortable even when fully loaded.",
+            verified: true,
+          },
+          {
+            author: "Priya L.",
+            rating: 5,
+            date: "January 2025",
+            title: "Worth every penny",
+            body: "Bought this as a gift and she was thrilled. Shipping was fast and packaging was beautiful.",
+            verified: false,
+          },
+        ],
+        accentColor: "#6366f1",
+        className: "",
+      } as Props["PdpReviews"],
+      render: (props) => <PdpReviews {...props} />,
     },
     NavigationMenuBlock: {
       fields: {
@@ -1002,6 +1785,7 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
+            <NavigationMenuCartIcon />
             {showIndicator && <NavigationMenuIndicator />}
           </NavigationMenu>
         </div>

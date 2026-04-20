@@ -64,7 +64,7 @@ export function ProductCard({
         )}
       </div>
       <div className="p-4 flex flex-col gap-2 flex-1">
-        <h3 className="font-semibold text-base leading-tight">{title}</h3>
+        <a href="/products" className="font-semibold text-base leading-tight hover:underline">{title}</a>
         {description && (
           <p className="text-sm text-muted-foreground">{description}</p>
         )}
