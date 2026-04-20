@@ -9,6 +9,11 @@ import {
   NavigationMenuIndicator,
 } from "./components/ui/navigation-menu";
 import { Button } from "./components/ui/button";
+import { ProductCard } from "./components/ui/product-card";
+import { HeroBanner } from "./components/ui/hero-banner";
+import { Testimonial } from "./components/ui/testimonial";
+import { PricingCard } from "./components/ui/pricing-card";
+import { AnnouncementBar } from "./components/ui/announcement-bar";
 import { cn } from "./lib/utils";
 
 type RootProps = {
@@ -148,6 +153,55 @@ type Props = {
     align: string;
     items: NavItem[];
   };
+  ProductCard: {
+    imageSrc: string;
+    imageAlt: string;
+    badge: string;
+    badgeVariant: "sale" | "new" | "hot" | "soldout";
+    title: string;
+    description: string;
+    price: string;
+    originalPrice: string;
+    ctaLabel: string;
+    className: string;
+  };
+  HeroBanner: {
+    title: string;
+    subtitle: string;
+    description: string;
+    bgColor: string;
+    imageSrc: string;
+    imageAlt: string;
+    ctaLabel: string;
+    ctaHref: string;
+    align: "left" | "center" | "right";
+    minHeight: number;
+    className: string;
+  };
+  Testimonial: {
+    quote: string;
+    authorName: string;
+    authorRole: string;
+    avatarSrc: string;
+    rating: 1 | 2 | 3 | 4 | 5;
+    className: string;
+  };
+  PricingCard: {
+    planName: string;
+    price: string;
+    period: string;
+    features: { text: string }[];
+    featured: boolean;
+    ctaLabel: string;
+    className: string;
+  };
+  AnnouncementBar: {
+    text: string;
+    linkLabel: string;
+    linkHref: string;
+    variant: "default" | "primary" | "destructive";
+    className: string;
+  };
 };
 
 const categoriesConfig = {
@@ -182,6 +236,15 @@ const categoriesConfig = {
   layoutDisallow: {
     components: ["NavigationMenuBlock"] as (keyof Props)[],
     visible: false,
+  },
+  Ecommerce: {
+    components: [
+      "ProductCard",
+      "HeroBanner",
+      "Testimonial",
+      "PricingCard",
+      "AnnouncementBar",
+    ] as (keyof Props)[],
   },
 };
 
@@ -708,6 +771,163 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
         </Button>
       ),
     },
+    ProductCard: {
+      fields: {
+        imageSrc: { type: "text" },
+        imageAlt: { type: "text" },
+        badge: { type: "text" },
+        badgeVariant: {
+          type: "select",
+          options: [
+            { label: "Sale", value: "sale" },
+            { label: "New", value: "new" },
+            { label: "Hot", value: "hot" },
+            { label: "Sold Out", value: "soldout" },
+          ],
+        },
+        title: { type: "text", contentEditable: true },
+        description: { type: "text", contentEditable: true },
+        price: { type: "text" },
+        originalPrice: { type: "text" },
+        ctaLabel: { type: "text", contentEditable: true },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        imageSrc: "https://placehold.co/400x300",
+        imageAlt: "Product image",
+        badge: "New",
+        badgeVariant: "new",
+        title: "Product Name",
+        description: "Short product description goes here.",
+        price: "$49.99",
+        originalPrice: "",
+        ctaLabel: "Add to Cart",
+        className: "",
+      },
+      render: (props) => <ProductCard {...props} />,
+    },
+    HeroBanner: {
+      fields: {
+        title: { type: "text", contentEditable: true },
+        subtitle: { type: "text", contentEditable: true },
+        description: { type: "text", contentEditable: true },
+        bgColor: { type: "text" },
+        imageSrc: { type: "text" },
+        imageAlt: { type: "text" },
+        ctaLabel: { type: "text", contentEditable: true },
+        ctaHref: { type: "text" },
+        align: {
+          type: "select",
+          options: [
+            { label: "Left", value: "left" },
+            { label: "Center", value: "center" },
+            { label: "Right", value: "right" },
+          ],
+        },
+        minHeight: { type: "number" },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        title: "Big Sale — Up to 50% Off",
+        subtitle: "Limited Time Offer",
+        description:
+          "Shop the latest collection and save big. Free shipping on orders over $50.",
+        bgColor: "#1a1a2e",
+        imageSrc: "",
+        imageAlt: "",
+        ctaLabel: "Shop Now",
+        ctaHref: "#",
+        align: "center",
+        minHeight: 400,
+        className: "",
+      },
+      render: (props) => <HeroBanner {...props} />,
+    },
+    Testimonial: {
+      fields: {
+        quote: { type: "text", contentEditable: true },
+        authorName: { type: "text", contentEditable: true },
+        authorRole: { type: "text", contentEditable: true },
+        avatarSrc: { type: "text" },
+        rating: {
+          type: "select",
+          options: [1, 2, 3, 4, 5].map((n) => ({
+            label: `${n} star${n > 1 ? "s" : ""}`,
+            value: n,
+          })),
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        quote:
+          "This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.",
+        authorName: "Jane Smith",
+        authorRole: "Verified Buyer",
+        avatarSrc: "",
+        rating: 5,
+        className: "",
+      } as Props["Testimonial"],
+      render: (props) => <Testimonial {...props} />,
+    },
+    PricingCard: {
+      fields: {
+        planName: { type: "text", contentEditable: true },
+        price: { type: "text" },
+        period: { type: "text" },
+        features: {
+          type: "array",
+          arrayFields: { text: { type: "text" } },
+          defaultItemProps: { text: "Feature included" },
+        },
+        featured: {
+          type: "radio",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+        ctaLabel: { type: "text", contentEditable: true },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        planName: "Pro",
+        price: "$29",
+        period: "month",
+        features: [
+          { text: "Unlimited products" },
+          { text: "Priority support" },
+          { text: "Advanced analytics" },
+        ],
+        featured: false,
+        ctaLabel: "Get Started",
+        className: "",
+      },
+      render: (props) => <PricingCard {...props} />,
+    },
+    AnnouncementBar: {
+      fields: {
+        text: { type: "text", contentEditable: true },
+        linkLabel: { type: "text", contentEditable: true },
+        linkHref: { type: "text" },
+        variant: {
+          type: "select",
+          options: [
+            { label: "Default", value: "default" },
+            { label: "Primary", value: "primary" },
+            { label: "Destructive", value: "destructive" },
+          ],
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        text: "🎉 Free shipping on orders over $50!",
+        linkLabel: "Shop Now",
+        linkHref: "#",
+        variant: "primary",
+        className: "",
+      },
+      render: (props) => <AnnouncementBar {...props} />,
+    },
     NavigationMenuBlock: {
       fields: {
         viewport: {
@@ -795,7 +1015,6 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
     render: ({ children, title }) => {
       return (
         <main>
-          <h1>This site is underdevelopment</h1>
           <NavigationMenu />
           <div>{children}</div>
         </main>
