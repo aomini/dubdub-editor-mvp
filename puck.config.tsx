@@ -27,6 +27,9 @@ import { PdpProductInfo } from "./components/ui/pdp-product-info";
 import { PdpVariantSelector } from "./components/ui/pdp-variant-selector";
 import { PdpAddToCart } from "./components/ui/pdp-add-to-cart";
 import { PdpReviews } from "./components/ui/pdp-reviews";
+import { BestSellingProducts } from "./components/ui/best-selling-products";
+import { StockClearanceProducts } from "./components/ui/stock-clearance-products";
+import { ProductCategoryList } from "./components/ui/product-category-list";
 import { cn } from "./lib/utils";
 
 type RootProps = {
@@ -273,6 +276,64 @@ type Props = {
     aspectRatio: "square" | "portrait" | "landscape";
     className: string;
   };
+  BestSellingProducts: {
+    sectionTitle: string;
+    sectionSubtitle: string;
+    viewAllLabel: string;
+    viewAllHref: string;
+    columns: 2 | 3 | 4;
+    products: {
+      imageSrc: string;
+      imageAlt: string;
+      rank: number;
+      title: string;
+      rating: number;
+      reviewCount: number;
+      price: string;
+      ctaLabel: string;
+      href: string;
+    }[];
+    className: string;
+  };
+  StockClearanceProducts: {
+    sectionTitle: string;
+    sectionSubtitle: string;
+    columns: 2 | 3 | 4;
+    products: {
+      imageSrc: string;
+      imageAlt: string;
+      title: string;
+      originalPrice: string;
+      salePrice: string;
+      discountPercent: number;
+      stockLeft: number;
+      maxStock: number;
+      ctaLabel: string;
+      href: string;
+    }[];
+    className: string;
+  };
+  ProductCategoryList: {
+    sectionTitle: string;
+    sectionSubtitle: string;
+    viewAllLabel: string;
+    viewAllHref: string;
+    columns: 2 | 3 | 4;
+    categories: { label: string }[];
+    products: {
+      category: string;
+      imageSrc: string;
+      imageAlt: string;
+      badge: string;
+      badgeVariant: "sale" | "new" | "hot" | "soldout" | "none";
+      title: string;
+      price: string;
+      originalPrice: string;
+      ctaLabel: string;
+      href: string;
+    }[];
+    className: string;
+  };
   PdpImageGallery: {
     images: { src: string; alt: string }[];
     aspectRatio: "square" | "portrait" | "landscape";
@@ -393,6 +454,9 @@ const categoriesConfig = {
       "TrustBadges",
       "NewsletterSignup",
       "CategoryGrid",
+      "BestSellingProducts",
+      "StockClearanceProducts",
+      "ProductCategoryList",
       "Footer",
     ] as (keyof Props)[],
   },
@@ -1344,6 +1408,425 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
         className: "",
       },
       render: (props) => <CategoryGrid {...props} />,
+    },
+    BestSellingProducts: {
+      label: "Best Selling Products",
+      fields: {
+        sectionTitle: { type: "text", contentEditable: true },
+        sectionSubtitle: { type: "text", contentEditable: true },
+        viewAllLabel: { type: "text" },
+        viewAllHref: { type: "text" },
+        columns: {
+          type: "select",
+          options: [
+            { label: "2 Columns", value: 2 },
+            { label: "3 Columns", value: 3 },
+            { label: "4 Columns", value: 4 },
+          ],
+        },
+        products: {
+          type: "array",
+          arrayFields: {
+            imageSrc: { type: "text" },
+            imageAlt: { type: "text" },
+            rank: { type: "number" },
+            title: { type: "text" },
+            rating: { type: "number" },
+            reviewCount: { type: "number" },
+            price: { type: "text" },
+            ctaLabel: { type: "text" },
+            href: { type: "text" },
+          },
+          defaultItemProps: {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Product image",
+            rank: 1,
+            title: "Best Seller Product",
+            rating: 4.5,
+            reviewCount: 128,
+            price: "$49.99",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        sectionTitle: "Best Sellers",
+        sectionSubtitle: "Our most loved products this season",
+        viewAllLabel: "View All",
+        viewAllHref: "#",
+        columns: 4,
+        products: [
+          {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Product 1",
+            rank: 1,
+            title: "Premium Wireless Headphones",
+            rating: 5,
+            reviewCount: 3241,
+            price: "$129.99",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Product 2",
+            rank: 2,
+            title: "Minimalist Leather Watch",
+            rating: 4,
+            reviewCount: 1892,
+            price: "$89.99",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Product 3",
+            rank: 3,
+            title: "Organic Cotton Tote Bag",
+            rating: 4,
+            reviewCount: 756,
+            price: "$34.99",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Product 4",
+            rank: 4,
+            title: "Stainless Steel Water Bottle",
+            rating: 5,
+            reviewCount: 2105,
+            price: "$24.99",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+        ],
+        className: "",
+      },
+      render: (props) => <BestSellingProducts {...props} />,
+    },
+    StockClearanceProducts: {
+      label: "Stock Clearance Products",
+      fields: {
+        sectionTitle: { type: "text", contentEditable: true },
+        sectionSubtitle: { type: "text", contentEditable: true },
+        columns: {
+          type: "select",
+          options: [
+            { label: "2 Columns", value: 2 },
+            { label: "3 Columns", value: 3 },
+            { label: "4 Columns", value: 4 },
+          ],
+        },
+        products: {
+          type: "array",
+          arrayFields: {
+            imageSrc: { type: "text" },
+            imageAlt: { type: "text" },
+            title: { type: "text" },
+            originalPrice: { type: "text" },
+            salePrice: { type: "text" },
+            discountPercent: { type: "number" },
+            stockLeft: { type: "number" },
+            maxStock: { type: "number" },
+            ctaLabel: { type: "text" },
+            href: { type: "text" },
+          },
+          defaultItemProps: {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Clearance item",
+            title: "Clearance Product",
+            originalPrice: "$99.99",
+            salePrice: "$49.99",
+            discountPercent: 50,
+            stockLeft: 5,
+            maxStock: 50,
+            ctaLabel: "Grab It",
+            href: "#",
+          },
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        sectionTitle: "Stock Clearance",
+        sectionSubtitle: "Limited stock — grab it before it's gone!",
+        columns: 4,
+        products: [
+          {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Clearance item 1",
+            title: "Classic Denim Jacket",
+            originalPrice: "$119.99",
+            salePrice: "$59.99",
+            discountPercent: 50,
+            stockLeft: 3,
+            maxStock: 40,
+            ctaLabel: "Grab It",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Clearance item 2",
+            title: "Running Sneakers",
+            originalPrice: "$89.99",
+            salePrice: "$44.99",
+            discountPercent: 50,
+            stockLeft: 8,
+            maxStock: 60,
+            ctaLabel: "Grab It",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Clearance item 3",
+            title: "Silk Scarf",
+            originalPrice: "$49.99",
+            salePrice: "$19.99",
+            discountPercent: 60,
+            stockLeft: 2,
+            maxStock: 30,
+            ctaLabel: "Grab It",
+            href: "#",
+          },
+          {
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Clearance item 4",
+            title: "Leather Belt",
+            originalPrice: "$39.99",
+            salePrice: "$17.99",
+            discountPercent: 55,
+            stockLeft: 15,
+            maxStock: 50,
+            ctaLabel: "Grab It",
+            href: "#",
+          },
+        ],
+        className: "",
+      },
+      render: (props) => <StockClearanceProducts {...props} />,
+    },
+    ProductCategoryList: {
+      label: "Product Category List",
+      fields: {
+        sectionTitle: { type: "text", contentEditable: true },
+        sectionSubtitle: { type: "text", contentEditable: true },
+        viewAllLabel: { type: "text" },
+        viewAllHref: { type: "text" },
+        columns: {
+          type: "select",
+          options: [
+            { label: "2 Columns", value: 2 },
+            { label: "3 Columns", value: 3 },
+            { label: "4 Columns", value: 4 },
+          ],
+        },
+        categories: {
+          type: "array",
+          arrayFields: {
+            label: { type: "text" },
+          },
+          defaultItemProps: { label: "New Category" },
+        },
+        products: {
+          type: "array",
+          arrayFields: {
+            category: { type: "text" },
+            imageSrc: { type: "text" },
+            imageAlt: { type: "text" },
+            badge: { type: "text" },
+            badgeVariant: {
+              type: "select",
+              options: [
+                { label: "None", value: "none" },
+                { label: "Sale", value: "sale" },
+                { label: "New", value: "new" },
+                { label: "Hot", value: "hot" },
+                { label: "Sold Out", value: "soldout" },
+              ],
+            },
+            title: { type: "text" },
+            price: { type: "text" },
+            originalPrice: { type: "text" },
+            ctaLabel: { type: "text" },
+            href: { type: "text" },
+          },
+          defaultItemProps: {
+            category: "Electronics",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Product image",
+            badge: "New",
+            badgeVariant: "new",
+            title: "New Product",
+            price: "$49.99",
+            originalPrice: "",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+        },
+        className: { type: "text" },
+      },
+      defaultProps: {
+        sectionTitle: "Shop by Category",
+        sectionSubtitle: "Browse our curated collections",
+        viewAllLabel: "View All",
+        viewAllHref: "#",
+        columns: 4,
+        categories: [
+          { label: "Electronics" },
+          { label: "Clothing" },
+          { label: "Home" },
+        ],
+        products: [
+          {
+            category: "Electronics",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Wireless Headphones",
+            badge: "New",
+            badgeVariant: "new",
+            title: "Premium Wireless Headphones",
+            price: "$129.99",
+            originalPrice: "$179.99",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+          {
+            category: "Electronics",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Smart Watch",
+            badge: "Hot",
+            badgeVariant: "hot",
+            title: "Smart Watch Pro",
+            price: "$249.99",
+            originalPrice: "",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+          {
+            category: "Electronics",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Bluetooth Speaker",
+            badge: "Sale",
+            badgeVariant: "sale",
+            title: "Portable Bluetooth Speaker",
+            price: "$59.99",
+            originalPrice: "$89.99",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+          {
+            category: "Electronics",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Laptop Stand",
+            badge: "",
+            badgeVariant: "none",
+            title: "Adjustable Laptop Stand",
+            price: "$39.99",
+            originalPrice: "",
+            ctaLabel: "Add to Cart",
+            href: "#",
+          },
+          {
+            category: "Clothing",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Merino Sweater",
+            badge: "New",
+            badgeVariant: "new",
+            title: "Merino Wool Sweater",
+            price: "$89.99",
+            originalPrice: "",
+            ctaLabel: "Shop Now",
+            href: "#",
+          },
+          {
+            category: "Clothing",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Running Shoes",
+            badge: "Hot",
+            badgeVariant: "hot",
+            title: "Lightweight Running Shoes",
+            price: "$119.99",
+            originalPrice: "$149.99",
+            ctaLabel: "Shop Now",
+            href: "#",
+          },
+          {
+            category: "Clothing",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Denim Jacket",
+            badge: "Sale",
+            badgeVariant: "sale",
+            title: "Classic Denim Jacket",
+            price: "$64.99",
+            originalPrice: "$99.99",
+            ctaLabel: "Shop Now",
+            href: "#",
+          },
+          {
+            category: "Clothing",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Linen Shirt",
+            badge: "",
+            badgeVariant: "none",
+            title: "Breathable Linen Shirt",
+            price: "$44.99",
+            originalPrice: "",
+            ctaLabel: "Shop Now",
+            href: "#",
+          },
+          {
+            category: "Home",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Ceramic Vase",
+            badge: "New",
+            badgeVariant: "new",
+            title: "Handcrafted Ceramic Vase",
+            price: "$34.99",
+            originalPrice: "",
+            ctaLabel: "Buy Now",
+            href: "#",
+          },
+          {
+            category: "Home",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Scented Candle",
+            badge: "",
+            badgeVariant: "none",
+            title: "Soy Wax Scented Candle Set",
+            price: "$28.99",
+            originalPrice: "$39.99",
+            ctaLabel: "Buy Now",
+            href: "#",
+          },
+          {
+            category: "Home",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Throw Blanket",
+            badge: "Sale",
+            badgeVariant: "sale",
+            title: "Chunky Knit Throw Blanket",
+            price: "$49.99",
+            originalPrice: "$74.99",
+            ctaLabel: "Buy Now",
+            href: "#",
+          },
+          {
+            category: "Home",
+            imageSrc: "https://placehold.co/400x300",
+            imageAlt: "Bamboo Tray",
+            badge: "",
+            badgeVariant: "none",
+            title: "Bamboo Serving Tray",
+            price: "$22.99",
+            originalPrice: "",
+            ctaLabel: "Buy Now",
+            href: "#",
+          },
+        ],
+        className: "",
+      },
+      render: (props) => <ProductCategoryList {...props} />,
     },
     Footer: {
       label: "Footer",
