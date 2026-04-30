@@ -1,8 +1,13 @@
 "use client";
 
 import React from "react";
-import type { Data, Plugin } from "@puckeditor/core";
+import type { Data, Plugin, Viewports } from "@puckeditor/core";
 import { Drawer, Puck } from "@puckeditor/core";
+import {
+  BREAKPOINT_LABEL,
+  BREAKPOINT_PREVIEW_WIDTH,
+  BREAKPOINTS,
+} from "../../../lib/responsive-style";
 import {
   AlignLeft,
   Box,
@@ -107,11 +112,24 @@ const itemStyle: React.CSSProperties = {
   lineHeight: 1.2,
 };
 
+const viewports: Viewports = BREAKPOINTS.map((bp) => ({
+  width: BREAKPOINT_PREVIEW_WIDTH[bp],
+  height: "auto",
+  label: `${BREAKPOINT_LABEL[bp]} (${bp})`,
+  icon:
+    bp === "base" || bp === "sm"
+      ? "Smartphone"
+      : bp === "md"
+        ? "Tablet"
+        : "Monitor",
+}));
+
 export function Client({ path, data }: { path: string; data: Partial<Data> }) {
   return (
     <Puck
       config={config}
       data={data}
+      viewports={viewports}
       plugins={[themePlugin]}
       overrides={{
         components: () => {

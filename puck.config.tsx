@@ -1,4 +1,4 @@
-import type { Config, RichText, Slot } from "@puckeditor/core";
+import type { Config, ComponentConfig, RichText, Slot } from "@puckeditor/core";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -9,6 +9,8 @@ import {
   NavigationMenuIndicator,
   NavigationMenuCartIcon,
 } from "./components/ui/navigation-menu";
+import { withStyleField } from "./lib/with-style-field";
+import type { ResponsiveStyle } from "./lib/responsive-style";
 import { Button } from "./components/ui/button";
 import { ProductCard } from "./components/ui/product-card";
 import { HeroBanner } from "./components/ui/hero-banner";
@@ -474,7 +476,7 @@ const categoriesConfig = {
   },
 };
 
-export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
+const rawConfig: Config<Props, RootProps, keyof typeof categoriesConfig> = {
   categories: categoriesConfig,
   components: {
     TwoByTwo: {
@@ -2288,6 +2290,24 @@ export const config: Config<Props, RootProps, keyof typeof categoriesConfig> = {
       );
     },
   },
+};
+
+type StyledProps = { [K in keyof Props]: Props[K] & { style?: ResponsiveStyle } };
+
+const styledComponents = Object.fromEntries(
+  Object.entries(rawConfig.components).map(([name, componentConfig]) => [
+    name,
+    withStyleField(componentConfig as ComponentConfig<any>),
+  ]),
+) as Config<StyledProps, RootProps, keyof typeof categoriesConfig>["components"];
+
+export const config: Config<
+  StyledProps,
+  RootProps,
+  keyof typeof categoriesConfig
+> = {
+  ...rawConfig,
+  components: styledComponents,
 };
 
 export default config;
