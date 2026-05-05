@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { usePuck } from "@puckeditor/core";
+import { createUsePuck } from "@puckeditor/core";
 import {
   BREAKPOINTS,
   BREAKPOINT_LABEL,
@@ -19,9 +19,13 @@ const ICONS: Record<Breakpoint, string> = {
   "2xl": "🖥️",
 };
 
+const usePuck = createUsePuck();
+
 export function useActiveBreakpoint(): [Breakpoint, (bp: Breakpoint) => void] {
-  const { appState, dispatch } = usePuck();
-  const currentWidth = appState.ui.viewports.current.width;
+  const currentWidth = usePuck(
+    (s) => s.appState.ui.viewports.current.width,
+  );
+  const dispatch = usePuck((s) => s.dispatch);
 
   const bp: Breakpoint =
     typeof currentWidth === "number"

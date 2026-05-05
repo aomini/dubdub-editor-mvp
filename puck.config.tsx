@@ -2294,10 +2294,14 @@ const rawConfig: Config<Props, RootProps, keyof typeof categoriesConfig> = {
 
 type StyledProps = { [K in keyof Props]: Props[K] & { style?: ResponsiveStyle } };
 
+const APPLY_STYLE_DIRECT = new Set(["Button"]);
+
 const styledComponents = Object.fromEntries(
   Object.entries(rawConfig.components).map(([name, componentConfig]) => [
     name,
-    withStyleField(componentConfig as ComponentConfig<any>),
+    withStyleField(componentConfig as ComponentConfig<any>, {
+      applyStyleDirect: APPLY_STYLE_DIRECT.has(name),
+    }),
   ]),
 ) as Config<StyledProps, RootProps, keyof typeof categoriesConfig>["components"];
 

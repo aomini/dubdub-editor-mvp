@@ -37,10 +37,13 @@ codebase — arbitrary user-entered values can't generate new classes at runtime
                                            ▼
   Editor canvas /             ┌─────────────────────────────────────┐
   published page              │  <style>[data-rs="x"]{...}          │
-                              │  @media(min-width:768px){...}</style│
+  (wrapper mode, default)     │  @media(min-width:768px){...}</style│
                               │  <div data-rs="x">                  │
                               │    <OriginalComponent .../>         │
                               │  </div>                             │
+                              │                                     │
+  (direct mode,               │  <style>[data-rs="x"]{...}</style> │
+   applyStyleDirect: true)    │  <OriginalComponent data-rs="x"/>  │
                               └─────────────────────────────────────┘
 ```
 
@@ -167,12 +170,17 @@ A few things to note:
 - **`React.useId()`** gives a stable ID per mounted component, SSR-safe in
   React 18+. We strip the colons because they're invalid in CSS attribute
   selector values.
-- **Always wrap in `<div data-rs={id}>`**. We tried using `cloneElement` to
-  inject `data-rs` onto the original component's root, but most of our
-  components (e.g. `SpotlightCard`) are function components that don't forward
-  unknown props to their DOM root, so the attribute never reached the HTML.
-  An always-on wrapper is predictable; the trade-off is one extra DOM node per
-  component, which is acceptable for a builder.
+- **Wrapper vs direct mode.** By default, `StyledOutput` wraps children in
+  `<div data-rs={id}>`. This is predictable but means the CSS targets the
+  wrapper, not the component itself — so properties like `background-color`
+  won't override a component's own background (e.g. a Button's Tailwind
+  `bg-primary` class wins because it's on the inner element). For components
+  that spread `...props` onto their root DOM element, you can opt into
+  **direct mode** via `withStyleField(config, { applyStyleDirect: true })`.
+  In direct mode, `React.cloneElement` injects `data-rs` directly onto the
+  component's root element, so the generated CSS targets the component itself.
+  Container components (Flex, Grid, Columns) and components that don't forward
+  unknown props should keep the default wrapper.
 - **The `<style>` block is co-located with the wrapper**, not hoisted to
   `<head>`. That keeps server-rendering simple and means each component's CSS
   travels with it.
@@ -181,8 +189,12 @@ A few things to note:
 
 ```tsx
 // lib/with-style-field.tsx
-export function withStyleField(config: any): any {
+export function withStyleField(
+  config: any,
+  opts?: { applyStyleDirect?: boolean },
+): any {
   const originalRender = config.render;
+  const direct = opts?.applyStyleDirect ?? false;
   return {
     ...config,
     fields: {
@@ -197,7 +209,11 @@ export function withStyleField(config: any): any {
     defaultProps: { ...config.defaultProps, style: {} },
     render: (props) => {
       const { style: rs, ...rest } = props;
-      return <StyledOutput rs={rs}>{originalRender(rest)}</StyledOutput>;
+      return (
+        <StyledOutput rs={rs} direct={direct}>
+          {originalRender(rest)}
+        </StyledOutput>
+      );
     },
   };
 }
@@ -226,10 +242,14 @@ const rawConfig: Config<Props, RootProps, ...> = { /* unchanged */ };
 
 type StyledProps = { [K in keyof Props]: Props[K] & { style?: ResponsiveStyle } };
 
+const APPLY_STYLE_DIRECT = new Set(["Button"]);
+
 const styledComponents = Object.fromEntries(
   Object.entries(rawConfig.components).map(([name, c]) => [
     name,
-    withStyleField(c as ComponentConfig<any>),
+    withStyleField(c as ComponentConfig<any>, {
+      applyStyleDirect: APPLY_STYLE_DIRECT.has(name),
+    }),
   ]),
 ) as Config<StyledProps, RootProps, ...>["components"];
 
@@ -362,6 +382,25 @@ generator iterate over whatever keys are present.
 3. Existing data keeps working — older instances just don't have entries for
    the new bp, which means they inherit from a smaller bp at runtime.
 
+### Apply styles directly to a component (no wrapper div)
+
+For components like Button where the wrapper div prevents style manager
+properties (e.g. `background-color`) from reaching the actual element, opt
+into direct mode:
+
+1. Ensure the component forwards unknown props to its root DOM element
+   (i.e. uses `...props` spread).
+2. Add the component name to `APPLY_STYLE_DIRECT` in `puck.config.tsx`.
+
+In direct mode, `React.cloneElement` injects `data-rs` onto the component's
+root element instead of wrapping it. The generated CSS then targets the
+component itself, so style manager values can override the component's own
+styles via specificity.
+
+**Do not use this for:** container/layout components (Flex, Grid, Columns),
+components that render fragments, or components that don't forward unknown
+props — `cloneElement` will fail silently or break layout in those cases.
+
 ### Skip the field on a specific component
 
 Currently the wrap is unconditional in `puck.config.tsx`. To opt out:
@@ -382,10 +421,13 @@ breaks their inline-ness.
 
 ## Known limitations
 
-- **Wrapper div changes the DOM.** Every styled component now lives inside
-  `<div data-rs="...">`. For most layout/box use cases this is fine and is in
-  fact the styled element. For inline components or components whose parent
-  expects a specific child element type, this can shift behavior.
+- **Wrapper div changes the DOM.** By default, styled components live inside
+  `<div data-rs="...">`. For most layout/box use cases this is fine. For
+  components where the wrapper prevents style overrides (e.g. Button
+  backgrounds), use `applyStyleDirect: true` to apply `data-rs` directly to
+  the component's root element instead. For inline components or components
+  whose parent expects a specific child element type, the wrapper can still
+  shift behavior — consider skipping the field entirely for those.
 - **Per-instance `<style>` block.** Each component instance emits its own
   `<style>` tag. There's no de-duplication. For a typical page this is
   negligible; if a page grows to hundreds of styled components this is worth

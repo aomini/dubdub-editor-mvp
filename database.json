@@ -1,1 +1,825 @@
-{"/":{"root":{"props":{"title":""}},"content":[{"type":"AnnouncementBar","props":{"text":"Site Under Development","linkLabel":"Edit","linkHref":"#","variant":"default","className":"","id":"AnnouncementBar-4ee5fcd3-4066-4d96-83bd-11848fadb0f6"}},{"type":"Container","props":{"content":[{"type":"NavigationMenuBlock","props":{"viewport":true,"showIndicator":true,"items":[{"trigger":"Mens","links":[{"label":"Introduction","href":"#"},{"label":"Installation","href":"#"},{"label":"Link","href":"#"},{"label":"Link","href":"#"}]},{"trigger":"Womens","links":[{"label":"Link","href":"#"}]},{"trigger":"Juniors","links":[{"label":"Link","href":"#"}]},{"trigger":"Best Sellers","links":[{"label":"Link","href":"#"}]},{"trigger":"On Sale","links":[{"label":"Link","href":"#"}]}],"id":"NavigationMenuBlock-94285d99-d901-4c83-a797-d3a94eb15676","align":"end"}},{"type":"HeroBanner","props":{"title":"Big Sale — Up to 50% Off","subtitle":"Limited Time Offer","description":"Shop the latest collection and save big. Free shipping on orders over $50.","bgColor":"","imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/2000x1000-2.png","imageAlt":"","ctaLabel":"Shop Now","ctaHref":"#","align":"center","minHeight":400,"className":"","id":"HeroBanner-c3f56fdf-4a53-4061-806a-455807ef7b87","style":{"2xl":{"opacity":"0.8"},"base":{"opacity":"1"},"md":{"opacity":"0.2"}}}},{"type":"AnnouncementBar","props":{"text":"🎉 Free shipping on orders over $50!","linkLabel":"Shop Now","linkHref":"#","variant":"primary","className":"","id":"AnnouncementBar-c6872e45-b39c-47da-b7e2-526064e66696"}},{"type":"VerticalSpace","props":{"classNames":"","gap":20,"id":"VerticalSpace-2defa293-f1c4-43b5-ae7e-76e8ecd7b1e1"}},{"type":"CategoryGrid","props":{"title":"Shop by Category","subtitle":"Find exactly what you're looking for","categories":[{"imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612102/2612102_118_b.png?tag=BhzyXziyzCvL","label":"Women's","href":"#"},{"imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:828:0:0/width:828/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2521201/2521201_118_a.png?tag=NJgyYjeAPF3W","label":"Men's","href":"#"},{"imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2613510/2613510_937_b.png?tag=IPjtLnhP1EnE","label":"Accessories","href":"#"},{"imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:640:0:0/width:640/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2611511/2611511_732_a.png?tag=zYGJMue5vDdb","label":"Sale","href":"#"}],"columns":4,"aspectRatio":"portrait","className":"","id":"CategoryGrid-2a224cc3-3eb0-4220-ad0c-454c87dbcade"}},{"type":"VerticalSpace","props":{"classNames":"","gap":67,"id":"VerticalSpace-8391c891-543c-4ef1-96cd-69ae6b4427c8"}},{"type":"Container","props":{"content":[{"type":"TwoByTwo","props":{"rightColumn":[{"type":"HeroBanner","props":{"title":"Big Sale — Up to 50% Off","subtitle":"Limited Time Offer","description":"Shop the latest collection and save big. Free shipping on orders over $50.","bgColor":"#efefef","imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612411/2612411_102_b.png?tag=TPZgmSTLneY3","imageAlt":"","ctaLabel":"Shop Now","ctaHref":"#","align":"center","minHeight":400,"className":"","id":"HeroBanner-81fbcee7-620d-48f8-9823-524b4f1ebe92"}}],"leftColumn":[{"type":"HeroBanner","props":{"title":"Big Sale — Up to 50% Off","subtitle":"Limited Time Offer","description":"Shop the latest collection and save big. Free shipping on orders over $50.","bgColor":"","imageSrc":"","imageAlt":"","ctaLabel":"Shop Now","ctaHref":"#","align":"center","minHeight":400,"className":"","id":"HeroBanner-564c8a97-f231-4928-bf7a-9c094d961f5c"}}],"gap":16,"id":"TwoByTwo-2ec06e39-3994-4998-8f71-3eb6715826d3"}}],"maxWidth":1200,"padding":"16px","id":"Container-93945eaa-e2d6-46c1-9060-170e89b855be","className":""}},{"type":"Container","props":{"content":[{"type":"CountdownBanner","props":{"headline":"Flash Sale Ends In","subline":"Up to 60% off sitewide — don't miss out!","ctaLabel":"Shop Now","ctaHref":"#","targetDate":"2026-04-23T17:20:18.106Z","bgColor":"#1e1b4b","textColor":"#ffffff","className":"","id":"CountdownBanner-4eb679b7-2ec2-4bb8-98cd-371e475940fc"}},{"type":"VerticalSpace","props":{"classNames":"","gap":20,"id":"VerticalSpace-91f4b3d0-a554-4813-bb84-b073e8f9f884"}},{"type":"TrustBadges","props":{"badges":[{"icon":"🚚","title":"Free Shipping","subtitle":"On orders over $50"},{"icon":"🔄","title":"Easy Returns","subtitle":"30-day hassle-free returns"},{"icon":"🔒","title":"Secure Checkout","subtitle":"256-bit SSL encryption"},{"icon":"⭐","title":"4.9/5 Rating","subtitle":"From 10,000+ reviews"}],"layout":"row","showDividers":true,"className":"","id":"TrustBadges-698fb9b4-aba2-457d-b4d6-db833951c489"}}],"maxWidth":1200,"padding":"16px","id":"Container-1213cf5a-ad77-4846-ae38-3c392b6665b1","className":""}},{"type":"ThreeColumns","props":{"col3":[{"type":"ProductCard","props":{"imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612520/2612520_467_b.png?tag=4vxcQklScqLQ","imageAlt":"Product image","badge":"New","badgeVariant":"new","title":"Chinese Water Hats","description":"Short product description goes here.","price":"$49.99","originalPrice":"","ctaLabel":"Add to Cart","className":"","id":"ProductCard-7fdaac48-2129-4139-9043-bd143bafb41f"}}],"col2":[{"type":"ProductCard","props":{"imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612320/2612320_699_b.png?tag=FZglAy7OFw4p","imageAlt":"Product image","badge":"New","badgeVariant":"new","title":"Jacket Summer Spring","description":"Short product description goes here.","price":"$49.99","originalPrice":"","ctaLabel":"Add to Cart","className":"","id":"ProductCard-79085a97-ebd1-4d5a-b1d9-28434c9fdb68"}}],"col1":[{"type":"ProductCard","props":{"imageSrc":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612205/2612205_230_b.png?tag=gqNfCStixrOR","imageAlt":"Product image","badge":"Only 2 Left!","badgeVariant":"soldout","title":"Short Jeans","description":"Short product description goes here.","price":"$49.99","originalPrice":"","ctaLabel":"Add to Cart","className":"","id":"ProductCard-57618a81-351b-43a3-8503-11b085cf0c3d"}}],"gap":16,"id":"ThreeColumns-67d99d5a-c9e2-4de8-aa9c-61abc0309948"}}],"maxWidth":1200,"padding":"16px","id":"Container-8ae6b21b-84c0-4a4c-972b-fa49e0e76e82","className":""}},{"type":"VerticalSpace","props":{"classNames":"","gap":20,"id":"VerticalSpace-e08afd8e-ed36-48b4-b556-83a5081c1ec5"}},{"type":"Container","props":{"content":[{"type":"TwoByTwo","props":{"rightColumn":[{"type":"SpotlightCard","props":{"id":"SpotlightCard-a3025c69-17c5-45fa-bec8-1e5e85530b8f","eyebrow":"#1 Rated Store","title":"USA's No.1 Store","description":"We were listed as the best selling store with more than 100k satisfied customers","icon":"✨","ctaLabel":"Press","spotlightColor":"#6366f1","borderGlow":true,"className":""}}],"leftColumn":[{"type":"SpotlightCard","props":{"id":"SpotlightCard-51ab2a40-2c81-48a6-8c01-e523c8d54864","eyebrow":"#1 Rated Store","title":"USA's No.1 Store","description":"We were listed as the best selling store with more than 100k satisfied customers","icon":"✨","ctaLabel":"Press","spotlightColor":"#6366f1","borderGlow":true,"className":"","style":{"base":{"backgroundColor":"#d72828"},"md":{"backgroundColor":"#000000"}}}}],"id":"TwoByTwo-071166a2-287c-4d17-8c19-73bb423d4e1a","gap":16}}],"maxWidth":1200,"padding":"16px","id":"Container-4e9cbcfb-7f24-4f31-b3ec-06d87c32e439","className":"","style":{"base":{"display":"block"}}}},{"type":"Container","props":{"content":[{"type":"FourColumns","props":{"col4":[{"type":"Testimonial","props":{"quote":"This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.","authorName":"Jane Smith","authorRole":"Verified Buyer","avatarSrc":"","rating":5,"className":"","id":"Testimonial-4aaaa54e-b870-4ab9-b0c4-e356e14ce34a"}}],"col3":[{"type":"Testimonial","props":{"quote":"This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.","authorName":"Jane Smith","authorRole":"Verified Buyer","avatarSrc":"","rating":5,"className":"","id":"Testimonial-342a8461-e166-4da9-9313-52cc4273acee"}}],"col2":[{"type":"Testimonial","props":{"quote":"This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.","authorName":"Jane Smith","authorRole":"Verified Buyer","avatarSrc":"","rating":5,"className":"","id":"Testimonial-a6c01f9a-4a11-4598-a130-7fce16037d5e"}}],"col1":[{"type":"Testimonial","props":{"quote":"This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.","authorName":"Jane Smith","authorRole":"Verified Buyer","avatarSrc":"","rating":5,"className":"","id":"Testimonial-7c00bb53-9c53-451c-b869-84dd0024c8a6","style":{}}}],"gap":16,"id":"FourColumns-f7f17a16-d6ca-44b6-b0d9-52edced0c54e"}}],"maxWidth":1200,"padding":"16px","id":"Container-f7ff62b8-3bd6-4db6-bcf6-9ec8931a41f2","className":""}},{"type":"VerticalSpace","props":{"classNames":"","gap":20,"id":"VerticalSpace-5eac80d4-9d45-4540-ab31-b80f159be02f"}},{"type":"Footer","props":{"brandName":"YourBrand","tagline":"Premium products, delivered to your door. Quality you can trust.","columns":[{"heading":"Shop","links":[{"label":"New Arrivals","href":"#"},{"label":"Best Sellers","href":"#"},{"label":"Sale","href":"#"},{"label":"Collections","href":"#"}]},{"heading":"Help","links":[{"label":"FAQ","href":"#"},{"label":"Shipping","href":"#"},{"label":"Returns","href":"#"},{"label":"Track Order","href":"#"}]},{"heading":"Company","links":[{"label":"About Us","href":"#"},{"label":"Blog","href":"#"},{"label":"Careers","href":"#"},{"label":"Press","href":"#"}]},{"heading":"Legal","links":[{"label":"Privacy Policy","href":"#"},{"label":"Terms of Service","href":"#"},{"label":"Cookie Policy","href":"#"}]}],"socialLinks":[{"platform":"instagram","href":"#"},{"platform":"twitter","href":"#"},{"platform":"facebook","href":"#"}],"copyrightText":"© 2026 YourBrand. All rights reserved.","bgColor":"#0f0f0f","accentColor":"#6366f1","showNewsletter":true,"newsletterPlaceholder":"Enter your email","newsletterCtaLabel":"Subscribe","className":"","id":"Footer-61c235ff-5894-4e32-968b-76a21a8f4021"}}],"zones":{}},"/products":{"root":{"props":{}},"content":[{"type":"Container","props":{"content":[{"type":"NavigationMenuBlock","props":{"viewport":true,"showIndicator":false,"align":"start","items":[{"trigger":"Mens","links":[{"label":"Introduction","href":"#"},{"label":"Installation","href":"#"}]},{"trigger":"Womens","links":[{"label":"Link","href":"#"}]},{"trigger":"Junior","links":[{"label":"Link","href":"#"}]}],"id":"NavigationMenuBlock-8b4bc2f8-44a2-437d-82f2-ef592c7976ef"}}],"maxWidth":1200,"padding":"16px","id":"Container-ad336968-dbc0-4690-b7f8-33a1b81f0d41","className":""}},{"type":"Container","props":{"content":[{"type":"FluidColumns","props":{"col12":[],"col11":[],"col10":[],"col9":[],"col8":[],"col7":[],"col6":[],"col5":[],"col4":[],"col3":[],"col2":[{"type":"PdpProductInfo","props":{"brand":"ACME Studio","title":"Premium Leather Crossbody Bag","price":"$129","originalPrice":"$189","badge":"Best Seller","badgeColor":"#6366f1","rating":4,"reviewCount":2847,"description":"Handcrafted from full-grain leather with a minimalist silhouette. Fits a 13\" laptop, has an interior zip pocket, and adjustable strap.","sku":"ACM-LCB-001","className":"","id":"PdpProductInfo-13e0ec1a-1b58-4493-8b04-1b997ef6a486"}},{"type":"VerticalSpace","props":{"classNames":"","gap":20,"id":"VerticalSpace-a5ff83db-aae5-4582-9521-dd23c6762b05"}},{"type":"PdpVariantSelector","props":{"colorLabel":"Color","colors":[{"name":"Midnight Black","hex":"#1a1a1a"},{"name":"Tan","hex":"#c8956c"},{"name":"Navy","hex":"#1e3a5f"},{"name":"Forest Green","hex":"#2d5a27"}],"sizeLabel":"Size","sizes":[{"label":"XS","available":true},{"label":"S","available":true},{"label":"M","available":true},{"label":"L","available":false},{"label":"XL","available":true}],"showSizeGuide":true,"className":"","id":"PdpVariantSelector-eec61bc4-02e0-4dc1-8a09-dedae8b66971"}},{"type":"VerticalSpace","props":{"classNames":"","gap":20,"id":"VerticalSpace-9e1e6bc4-721e-49ee-8747-bdc7c3926e2b"}},{"type":"PdpAddToCart","props":{"ctaLabel":"Add to Cart","wishlistLabel":"Save to Wishlist","showWishlist":true,"showQuantity":true,"accentColor":"#6366f1","stockCount":7,"className":"","id":"PdpAddToCart-da6c0f0a-919d-490b-bff9-6b90103d4872"}}],"col1":[{"type":"PdpImageGallery","props":{"images":[{"src":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2521502/2521502_668_b.png?tag=DPqIamPClAN2","alt":"Product front"},{"src":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/products-images/2511501/2511501_728_b.png?tag=aRZmZya8hU33","alt":"Product back"},{"src":"https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2611521/2611521_698_b.png?tag=v9f3Nc2iXsmD","alt":"Product detail"}],"aspectRatio":"square","enableZoom":true,"className":"","id":"PdpImageGallery-634f4b1b-e112-42e3-b630-abe2c7f45f34"}}],"gap":16,"numColumns":2,"col1Span":6,"col2Span":6,"col3Span":4,"col4Span":3,"col5Span":2,"col6Span":2,"col7Span":2,"col8Span":2,"col9Span":1,"col10Span":1,"col11Span":1,"col12Span":1,"id":"FluidColumns-eec8c73a-cf1f-4d1c-b621-71d4089a66d6"}}],"maxWidth":1200,"padding":"16px","id":"Container-f62557cb-f329-48e4-87cb-d268f0fc3ce5","className":""}},{"type":"VerticalSpace","props":{"classNames":"","gap":20,"id":"VerticalSpace-eb5da76e-b7e0-4061-873e-84bffbb6678b"}},{"type":"Container","props":{"content":[{"type":"PdpReviews","props":{"heading":"Customer Reviews","averageRating":4,"totalReviews":2847,"reviews":[{"author":"Sarah M.","rating":5,"date":"March 2025","title":"Absolutely love this bag!","body":"The leather quality is incredible — soft yet durable. I use it daily and it only looks better with age.","verified":true},{"author":"James K.","rating":4,"date":"February 2025","title":"Great everyday carry","body":"Fits my laptop, charger, and notebook with room to spare. The strap is comfortable even when fully loaded.","verified":true},{"author":"Priya L.","rating":5,"date":"January 2025","title":"Worth every penny","body":"Bought this as a gift and she was thrilled. Shipping was fast and packaging was beautiful.","verified":false}],"accentColor":"#6366f1","className":"","id":"PdpReviews-2767a38f-725a-430e-b1ad-555fd5dabcfc"}}],"maxWidth":1200,"padding":"16px","id":"Container-fb44c4e3-a8c0-49e4-b8ac-4f606f715125","className":""}},{"type":"Footer","props":{"brandName":"DubDubco","tagline":"Premium products, delivered to your door. Quality you can trust.","columns":[{"heading":"Shop","links":[{"label":"New Arrivals","href":"#"},{"label":"Best Sellers","href":"#"},{"label":"Sale","href":"#"},{"label":"Collections","href":"#"}]},{"heading":"Help","links":[{"label":"FAQ","href":"#"},{"label":"Shipping","href":"#"},{"label":"Returns","href":"#"},{"label":"Track Order","href":"#"}]},{"heading":"Company","links":[{"label":"About Us","href":"#"},{"label":"Blog","href":"#"},{"label":"Careers","href":"#"},{"label":"Press","href":"#"}]},{"heading":"Legal","links":[{"label":"Privacy Policy","href":"#"},{"label":"Terms of Service","href":"#"},{"label":"Cookie Policy","href":"#"}]}],"socialLinks":[{"platform":"instagram","href":"#"},{"platform":"twitter","href":"#"},{"platform":"facebook","href":"#"}],"copyrightText":"© 2026 YourBrand. All rights reserved.","bgColor":"#0f0f0f","accentColor":"#6366f1","showNewsletter":true,"newsletterPlaceholder":"Enter your email","newsletterCtaLabel":"Subscribe","className":"","id":"Footer-f6c0be60-737f-455a-a880-e88e1460f5f5"}}],"zones":{}}}
+{
+  "/": {
+    "root": { "props": { "title": "" } },
+    "content": [
+      {
+        "type": "AnnouncementBar",
+        "props": {
+          "text": "Site Under Development",
+          "linkLabel": "Edit",
+          "linkHref": "#",
+          "variant": "default",
+          "className": "",
+          "id": "AnnouncementBar-4ee5fcd3-4066-4d96-83bd-11848fadb0f6"
+        }
+      },
+      {
+        "type": "Container",
+        "props": {
+          "content": [
+            {
+              "type": "NavigationMenuBlock",
+              "props": {
+                "viewport": true,
+                "showIndicator": true,
+                "items": [
+                  {
+                    "trigger": "Mens",
+                    "links": [
+                      { "label": "Introduction", "href": "#" },
+                      { "label": "Installation", "href": "#" },
+                      { "label": "Link", "href": "#" },
+                      { "label": "Link", "href": "#" }
+                    ]
+                  },
+                  {
+                    "trigger": "Womens",
+                    "links": [{ "label": "Link", "href": "#" }]
+                  },
+                  {
+                    "trigger": "Juniors",
+                    "links": [{ "label": "Link", "href": "#" }]
+                  },
+                  {
+                    "trigger": "Best Sellers",
+                    "links": [{ "label": "Link", "href": "#" }]
+                  },
+                  {
+                    "trigger": "On Sale",
+                    "links": [{ "label": "Link", "href": "#" }]
+                  }
+                ],
+                "id": "NavigationMenuBlock-94285d99-d901-4c83-a797-d3a94eb15676",
+                "align": "end"
+              }
+            },
+            {
+              "type": "HeroBanner",
+              "props": {
+                "title": "Big Sale — Up to 50% Off",
+                "subtitle": "Limited Time Offer",
+                "description": "Shop the latest collection and save big. Free shipping on orders over $50.",
+                "bgColor": "",
+                "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/2000x1000-2.png",
+                "imageAlt": "",
+                "ctaLabel": "Shop Now",
+                "ctaHref": "#",
+                "align": "center",
+                "minHeight": 400,
+                "className": "",
+                "id": "HeroBanner-c3f56fdf-4a53-4061-806a-455807ef7b87",
+                "style": {
+                  "2xl": { "opacity": "0.8" },
+                  "base": { "opacity": "1" },
+                  "md": { "opacity": "0.2" }
+                }
+              }
+            },
+            {
+              "type": "AnnouncementBar",
+              "props": {
+                "text": "🎉 Free shipping on orders over $50!",
+                "linkLabel": "Shop Now",
+                "linkHref": "#",
+                "variant": "primary",
+                "className": "",
+                "id": "AnnouncementBar-c6872e45-b39c-47da-b7e2-526064e66696"
+              }
+            },
+            {
+              "type": "VerticalSpace",
+              "props": {
+                "classNames": "",
+                "gap": 20,
+                "id": "VerticalSpace-2defa293-f1c4-43b5-ae7e-76e8ecd7b1e1"
+              }
+            },
+            {
+              "type": "CategoryGrid",
+              "props": {
+                "title": "Shop by Category",
+                "subtitle": "Find exactly what you're looking for",
+                "categories": [
+                  {
+                    "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612102/2612102_118_b.png?tag=BhzyXziyzCvL",
+                    "label": "Women's",
+                    "href": "#"
+                  },
+                  {
+                    "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:828:0:0/width:828/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2521201/2521201_118_a.png?tag=NJgyYjeAPF3W",
+                    "label": "Men's",
+                    "href": "#"
+                  },
+                  {
+                    "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2613510/2613510_937_b.png?tag=IPjtLnhP1EnE",
+                    "label": "Accessories",
+                    "href": "#"
+                  },
+                  {
+                    "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:640:0:0/width:640/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2611511/2611511_732_a.png?tag=zYGJMue5vDdb",
+                    "label": "Sale",
+                    "href": "#"
+                  }
+                ],
+                "columns": 4,
+                "aspectRatio": "portrait",
+                "className": "",
+                "id": "CategoryGrid-2a224cc3-3eb0-4220-ad0c-454c87dbcade"
+              }
+            },
+            {
+              "type": "VerticalSpace",
+              "props": {
+                "classNames": "",
+                "gap": 67,
+                "id": "VerticalSpace-8391c891-543c-4ef1-96cd-69ae6b4427c8"
+              }
+            },
+            {
+              "type": "Container",
+              "props": {
+                "content": [
+                  {
+                    "type": "TwoByTwo",
+                    "props": {
+                      "rightColumn": [
+                        {
+                          "type": "HeroBanner",
+                          "props": {
+                            "title": "Big Sale — Up to 50% Off",
+                            "subtitle": "Limited Time Offer",
+                            "description": "Shop the latest collection and save big. Free shipping on orders over $50.",
+                            "bgColor": "#efefef",
+                            "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612411/2612411_102_b.png?tag=TPZgmSTLneY3",
+                            "imageAlt": "",
+                            "ctaLabel": "Shop Now",
+                            "ctaHref": "#",
+                            "align": "center",
+                            "minHeight": 400,
+                            "className": "",
+                            "id": "HeroBanner-81fbcee7-620d-48f8-9823-524b4f1ebe92"
+                          }
+                        }
+                      ],
+                      "leftColumn": [
+                        {
+                          "type": "HeroBanner",
+                          "props": {
+                            "title": "Big Sale — Up to 50% Off",
+                            "subtitle": "Limited Time Offer",
+                            "description": "Shop the latest collection and save big. Free shipping on orders over $50.",
+                            "bgColor": "",
+                            "imageSrc": "",
+                            "imageAlt": "",
+                            "ctaLabel": "Shop Now",
+                            "ctaHref": "#",
+                            "align": "center",
+                            "minHeight": 400,
+                            "className": "",
+                            "id": "HeroBanner-564c8a97-f231-4928-bf7a-9c094d961f5c"
+                          }
+                        }
+                      ],
+                      "gap": 16,
+                      "id": "TwoByTwo-2ec06e39-3994-4998-8f71-3eb6715826d3"
+                    }
+                  }
+                ],
+                "maxWidth": 1200,
+                "padding": "16px",
+                "id": "Container-93945eaa-e2d6-46c1-9060-170e89b855be",
+                "className": ""
+              }
+            },
+            {
+              "type": "Container",
+              "props": {
+                "content": [
+                  {
+                    "type": "CountdownBanner",
+                    "props": {
+                      "headline": "Flash Sale Ends In",
+                      "subline": "Up to 60% off sitewide — don't miss out!",
+                      "ctaLabel": "Shop Now",
+                      "ctaHref": "#",
+                      "targetDate": "2026-04-23T17:20:18.106Z",
+                      "bgColor": "#1e1b4b",
+                      "textColor": "#ffffff",
+                      "className": "",
+                      "id": "CountdownBanner-4eb679b7-2ec2-4bb8-98cd-371e475940fc"
+                    }
+                  },
+                  {
+                    "type": "VerticalSpace",
+                    "props": {
+                      "classNames": "",
+                      "gap": 20,
+                      "id": "VerticalSpace-91f4b3d0-a554-4813-bb84-b073e8f9f884"
+                    }
+                  },
+                  {
+                    "type": "TrustBadges",
+                    "props": {
+                      "badges": [
+                        {
+                          "icon": "🚚",
+                          "title": "Free Shipping",
+                          "subtitle": "On orders over $50"
+                        },
+                        {
+                          "icon": "🔄",
+                          "title": "Easy Returns",
+                          "subtitle": "30-day hassle-free returns"
+                        },
+                        {
+                          "icon": "🔒",
+                          "title": "Secure Checkout",
+                          "subtitle": "256-bit SSL encryption"
+                        },
+                        {
+                          "icon": "⭐",
+                          "title": "4.9/5 Rating",
+                          "subtitle": "From 10,000+ reviews"
+                        }
+                      ],
+                      "layout": "row",
+                      "showDividers": true,
+                      "className": "",
+                      "id": "TrustBadges-698fb9b4-aba2-457d-b4d6-db833951c489"
+                    }
+                  }
+                ],
+                "maxWidth": 1200,
+                "padding": "16px",
+                "id": "Container-1213cf5a-ad77-4846-ae38-3c392b6665b1",
+                "className": ""
+              }
+            },
+            {
+              "type": "ThreeColumns",
+              "props": {
+                "col3": [
+                  {
+                    "type": "ProductCard",
+                    "props": {
+                      "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612520/2612520_467_b.png?tag=4vxcQklScqLQ",
+                      "imageAlt": "Product image",
+                      "badge": "New",
+                      "badgeVariant": "new",
+                      "title": "Chinese Water Hats",
+                      "description": "Short product description goes here.",
+                      "price": "$49.99",
+                      "originalPrice": "",
+                      "ctaLabel": "Add to Cart",
+                      "className": "",
+                      "id": "ProductCard-7fdaac48-2129-4139-9043-bd143bafb41f"
+                    }
+                  }
+                ],
+                "col2": [
+                  {
+                    "type": "ProductCard",
+                    "props": {
+                      "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612320/2612320_699_b.png?tag=FZglAy7OFw4p",
+                      "imageAlt": "Product image",
+                      "badge": "New",
+                      "badgeVariant": "new",
+                      "title": "Jacket Summer Spring",
+                      "description": "Short product description goes here.",
+                      "price": "$49.99",
+                      "originalPrice": "",
+                      "ctaLabel": "Add to Cart",
+                      "className": "",
+                      "id": "ProductCard-79085a97-ebd1-4d5a-b1d9-28434c9fdb68"
+                    }
+                  }
+                ],
+                "col1": [
+                  {
+                    "type": "ProductCard",
+                    "props": {
+                      "imageSrc": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2612205/2612205_230_b.png?tag=gqNfCStixrOR",
+                      "imageAlt": "Product image",
+                      "badge": "Only 2 Left!",
+                      "badgeVariant": "soldout",
+                      "title": "Short Jeans",
+                      "description": "Short product description goes here.",
+                      "price": "$49.99",
+                      "originalPrice": "",
+                      "ctaLabel": "Add to Cart",
+                      "className": "",
+                      "id": "ProductCard-57618a81-351b-43a3-8503-11b085cf0c3d"
+                    }
+                  }
+                ],
+                "gap": 16,
+                "id": "ThreeColumns-67d99d5a-c9e2-4de8-aa9c-61abc0309948"
+              }
+            }
+          ],
+          "maxWidth": 1200,
+          "padding": "16px",
+          "id": "Container-8ae6b21b-84c0-4a4c-972b-fa49e0e76e82",
+          "className": ""
+        }
+      },
+      {
+        "type": "VerticalSpace",
+        "props": {
+          "classNames": "",
+          "gap": 20,
+          "id": "VerticalSpace-e08afd8e-ed36-48b4-b556-83a5081c1ec5"
+        }
+      },
+      {
+        "type": "Container",
+        "props": {
+          "content": [
+            {
+              "type": "TwoByTwo",
+              "props": {
+                "rightColumn": [
+                  {
+                    "type": "SpotlightCard",
+                    "props": {
+                      "id": "SpotlightCard-a3025c69-17c5-45fa-bec8-1e5e85530b8f",
+                      "eyebrow": "#1 Rated Store",
+                      "title": "USA's No.1 Store",
+                      "description": "We were listed as the best selling store with more than 100k satisfied customers",
+                      "icon": "✨",
+                      "ctaLabel": "Press",
+                      "spotlightColor": "#6366f1",
+                      "borderGlow": true,
+                      "className": ""
+                    }
+                  }
+                ],
+                "leftColumn": [
+                  {
+                    "type": "SpotlightCard",
+                    "props": {
+                      "id": "SpotlightCard-51ab2a40-2c81-48a6-8c01-e523c8d54864",
+                      "eyebrow": "#1 Rated Store",
+                      "title": "USA's No.1 Store",
+                      "description": "We were listed as the best selling store with more than 100k satisfied customers",
+                      "icon": "✨",
+                      "ctaLabel": "Press",
+                      "spotlightColor": "#6366f1",
+                      "borderGlow": true,
+                      "className": "",
+                      "style": {
+                        "base": { "backgroundColor": "#d72828" },
+                        "md": { "backgroundColor": "#000000" }
+                      }
+                    }
+                  }
+                ],
+                "id": "TwoByTwo-071166a2-287c-4d17-8c19-73bb423d4e1a",
+                "gap": 16
+              }
+            }
+          ],
+          "maxWidth": 1200,
+          "padding": "16px",
+          "id": "Container-4e9cbcfb-7f24-4f31-b3ec-06d87c32e439",
+          "className": "",
+          "style": { "base": { "display": "block" } }
+        }
+      },
+      {
+        "type": "Container",
+        "props": {
+          "content": [
+            {
+              "type": "FourColumns",
+              "props": {
+                "col4": [
+                  {
+                    "type": "Testimonial",
+                    "props": {
+                      "quote": "This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.",
+                      "authorName": "Jane Smith",
+                      "authorRole": "Verified Buyer",
+                      "avatarSrc": "",
+                      "rating": 5,
+                      "className": "",
+                      "id": "Testimonial-4aaaa54e-b870-4ab9-b0c4-e356e14ce34a"
+                    }
+                  }
+                ],
+                "col3": [
+                  {
+                    "type": "Testimonial",
+                    "props": {
+                      "quote": "This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.",
+                      "authorName": "Jane Smith",
+                      "authorRole": "Verified Buyer",
+                      "avatarSrc": "",
+                      "rating": 5,
+                      "className": "",
+                      "id": "Testimonial-342a8461-e166-4da9-9313-52cc4273acee"
+                    }
+                  }
+                ],
+                "col2": [
+                  {
+                    "type": "Testimonial",
+                    "props": {
+                      "quote": "This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.",
+                      "authorName": "Jane Smith",
+                      "authorRole": "Verified Buyer",
+                      "avatarSrc": "",
+                      "rating": 5,
+                      "className": "",
+                      "id": "Testimonial-a6c01f9a-4a11-4598-a130-7fce16037d5e"
+                    }
+                  }
+                ],
+                "col1": [
+                  {
+                    "type": "Testimonial",
+                    "props": {
+                      "quote": "This product completely exceeded my expectations. The quality is outstanding and delivery was super fast.",
+                      "authorName": "Jane Smith",
+                      "authorRole": "Verified Buyer",
+                      "avatarSrc": "",
+                      "rating": 5,
+                      "className": "",
+                      "id": "Testimonial-7c00bb53-9c53-451c-b869-84dd0024c8a6",
+                      "style": {}
+                    }
+                  }
+                ],
+                "gap": 16,
+                "id": "FourColumns-f7f17a16-d6ca-44b6-b0d9-52edced0c54e"
+              }
+            }
+          ],
+          "maxWidth": 1200,
+          "padding": "16px",
+          "id": "Container-f7ff62b8-3bd6-4db6-bcf6-9ec8931a41f2",
+          "className": ""
+        }
+      },
+      {
+        "type": "VerticalSpace",
+        "props": {
+          "classNames": "",
+          "gap": 20,
+          "id": "VerticalSpace-5eac80d4-9d45-4540-ab31-b80f159be02f"
+        }
+      },
+      {
+        "type": "Footer",
+        "props": {
+          "brandName": "YourBrand",
+          "tagline": "Premium products, delivered to your door. Quality you can trust.",
+          "columns": [
+            {
+              "heading": "Shop",
+              "links": [
+                { "label": "New Arrivals", "href": "#" },
+                { "label": "Best Sellers", "href": "#" },
+                { "label": "Sale", "href": "#" },
+                { "label": "Collections", "href": "#" }
+              ]
+            },
+            {
+              "heading": "Help",
+              "links": [
+                { "label": "FAQ", "href": "#" },
+                { "label": "Shipping", "href": "#" },
+                { "label": "Returns", "href": "#" },
+                { "label": "Track Order", "href": "#" }
+              ]
+            },
+            {
+              "heading": "Company",
+              "links": [
+                { "label": "About Us", "href": "#" },
+                { "label": "Blog", "href": "#" },
+                { "label": "Careers", "href": "#" },
+                { "label": "Press", "href": "#" }
+              ]
+            },
+            {
+              "heading": "Legal",
+              "links": [
+                { "label": "Privacy Policy", "href": "#" },
+                { "label": "Terms of Service", "href": "#" },
+                { "label": "Cookie Policy", "href": "#" }
+              ]
+            }
+          ],
+          "socialLinks": [
+            { "platform": "instagram", "href": "#" },
+            { "platform": "twitter", "href": "#" },
+            { "platform": "facebook", "href": "#" }
+          ],
+          "copyrightText": "© 2026 YourBrand. All rights reserved.",
+          "bgColor": "#0f0f0f",
+          "accentColor": "#6366f1",
+          "showNewsletter": true,
+          "newsletterPlaceholder": "Enter your email",
+          "newsletterCtaLabel": "Subscribe",
+          "className": "",
+          "id": "Footer-61c235ff-5894-4e32-968b-76a21a8f4021"
+        }
+      }
+    ],
+    "zones": {}
+  },
+  "/products": {
+    "root": { "props": {} },
+    "content": [
+      {
+        "type": "Container",
+        "props": {
+          "content": [
+            {
+              "type": "NavigationMenuBlock",
+              "props": {
+                "viewport": true,
+                "showIndicator": false,
+                "align": "start",
+                "items": [
+                  {
+                    "trigger": "Mens",
+                    "links": [
+                      { "label": "Introduction", "href": "#" },
+                      { "label": "Installation", "href": "#" }
+                    ]
+                  },
+                  {
+                    "trigger": "Womens",
+                    "links": [{ "label": "Link", "href": "#" }]
+                  },
+                  {
+                    "trigger": "Junior",
+                    "links": [{ "label": "Link", "href": "#" }]
+                  }
+                ],
+                "id": "NavigationMenuBlock-8b4bc2f8-44a2-437d-82f2-ef592c7976ef"
+              }
+            }
+          ],
+          "maxWidth": 1200,
+          "padding": "16px",
+          "id": "Container-ad336968-dbc0-4690-b7f8-33a1b81f0d41",
+          "className": ""
+        }
+      },
+      {
+        "type": "Container",
+        "props": {
+          "content": [
+            {
+              "type": "FluidColumns",
+              "props": {
+                "col12": [],
+                "col11": [],
+                "col10": [],
+                "col9": [],
+                "col8": [],
+                "col7": [],
+                "col6": [],
+                "col5": [],
+                "col4": [],
+                "col3": [],
+                "col2": [
+                  {
+                    "type": "PdpProductInfo",
+                    "props": {
+                      "brand": "ACME Studio",
+                      "title": "Premium Leather Crossbody Bag",
+                      "price": "$129",
+                      "originalPrice": "$189",
+                      "badge": "Best Seller",
+                      "badgeColor": "#6366f1",
+                      "rating": 4,
+                      "reviewCount": 2847,
+                      "description": "Handcrafted from full-grain leather with a minimalist silhouette. Fits a 13\" laptop, has an interior zip pocket, and adjustable strap.",
+                      "sku": "ACM-LCB-001",
+                      "className": "",
+                      "id": "PdpProductInfo-13e0ec1a-1b58-4493-8b04-1b997ef6a486"
+                    }
+                  },
+                  {
+                    "type": "VerticalSpace",
+                    "props": {
+                      "classNames": "",
+                      "gap": 20,
+                      "id": "VerticalSpace-a5ff83db-aae5-4582-9521-dd23c6762b05"
+                    }
+                  },
+                  {
+                    "type": "PdpVariantSelector",
+                    "props": {
+                      "colorLabel": "Color",
+                      "colors": [
+                        { "name": "Midnight Black", "hex": "#1a1a1a" },
+                        { "name": "Tan", "hex": "#c8956c" },
+                        { "name": "Navy", "hex": "#1e3a5f" },
+                        { "name": "Forest Green", "hex": "#2d5a27" }
+                      ],
+                      "sizeLabel": "Size",
+                      "sizes": [
+                        { "label": "XS", "available": true },
+                        { "label": "S", "available": true },
+                        { "label": "M", "available": true },
+                        { "label": "L", "available": false },
+                        { "label": "XL", "available": true }
+                      ],
+                      "showSizeGuide": true,
+                      "className": "",
+                      "id": "PdpVariantSelector-eec61bc4-02e0-4dc1-8a09-dedae8b66971"
+                    }
+                  },
+                  {
+                    "type": "VerticalSpace",
+                    "props": {
+                      "classNames": "",
+                      "gap": 20,
+                      "id": "VerticalSpace-9e1e6bc4-721e-49ee-8747-bdc7c3926e2b"
+                    }
+                  },
+                  {
+                    "type": "PdpAddToCart",
+                    "props": {
+                      "ctaLabel": "Add to Cart",
+                      "wishlistLabel": "Save to Wishlist",
+                      "showWishlist": true,
+                      "showQuantity": true,
+                      "accentColor": "#6366f1",
+                      "stockCount": 7,
+                      "className": "",
+                      "id": "PdpAddToCart-da6c0f0a-919d-490b-bff9-6b90103d4872"
+                    }
+                  }
+                ],
+                "col1": [
+                  {
+                    "type": "PdpImageGallery",
+                    "props": {
+                      "images": [
+                        {
+                          "src": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2521502/2521502_668_b.png?tag=DPqIamPClAN2",
+                          "alt": "Product front"
+                        },
+                        {
+                          "src": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/products-images/2511501/2511501_728_b.png?tag=aRZmZya8hU33",
+                          "alt": "Product back"
+                        },
+                        {
+                          "src": "https://flare.sailracing.com/preset:sharp/resize:fit:1920:0:0/width:1920/quality:100/gravity:sm/plain/https://api.sailracing.com/storage/images/images/product/2611521/2611521_698_b.png?tag=v9f3Nc2iXsmD",
+                          "alt": "Product detail"
+                        }
+                      ],
+                      "aspectRatio": "square",
+                      "enableZoom": true,
+                      "className": "",
+                      "id": "PdpImageGallery-634f4b1b-e112-42e3-b630-abe2c7f45f34"
+                    }
+                  }
+                ],
+                "gap": 16,
+                "numColumns": 2,
+                "col1Span": 6,
+                "col2Span": 6,
+                "col3Span": 4,
+                "col4Span": 3,
+                "col5Span": 2,
+                "col6Span": 2,
+                "col7Span": 2,
+                "col8Span": 2,
+                "col9Span": 1,
+                "col10Span": 1,
+                "col11Span": 1,
+                "col12Span": 1,
+                "id": "FluidColumns-eec8c73a-cf1f-4d1c-b621-71d4089a66d6"
+              }
+            }
+          ],
+          "maxWidth": 1200,
+          "padding": "16px",
+          "id": "Container-f62557cb-f329-48e4-87cb-d268f0fc3ce5",
+          "className": ""
+        }
+      },
+      {
+        "type": "VerticalSpace",
+        "props": {
+          "classNames": "",
+          "gap": 20,
+          "id": "VerticalSpace-eb5da76e-b7e0-4061-873e-84bffbb6678b"
+        }
+      },
+      {
+        "type": "Container",
+        "props": {
+          "content": [
+            {
+              "type": "PdpReviews",
+              "props": {
+                "heading": "Customer Reviews",
+                "averageRating": 4,
+                "totalReviews": 2847,
+                "reviews": [
+                  {
+                    "author": "Sarah M.",
+                    "rating": 5,
+                    "date": "March 2025",
+                    "title": "Absolutely love this bag!",
+                    "body": "The leather quality is incredible — soft yet durable. I use it daily and it only looks better with age.",
+                    "verified": true
+                  },
+                  {
+                    "author": "James K.",
+                    "rating": 4,
+                    "date": "February 2025",
+                    "title": "Great everyday carry",
+                    "body": "Fits my laptop, charger, and notebook with room to spare. The strap is comfortable even when fully loaded.",
+                    "verified": true
+                  },
+                  {
+                    "author": "Priya L.",
+                    "rating": 5,
+                    "date": "January 2025",
+                    "title": "Worth every penny",
+                    "body": "Bought this as a gift and she was thrilled. Shipping was fast and packaging was beautiful.",
+                    "verified": false
+                  }
+                ],
+                "accentColor": "#6366f1",
+                "className": "",
+                "id": "PdpReviews-2767a38f-725a-430e-b1ad-555fd5dabcfc"
+              }
+            }
+          ],
+          "maxWidth": 1200,
+          "padding": "16px",
+          "id": "Container-fb44c4e3-a8c0-49e4-b8ac-4f606f715125",
+          "className": ""
+        }
+      },
+      {
+        "type": "Footer",
+        "props": {
+          "brandName": "DubDubco",
+          "tagline": "Premium products, delivered to your door. Quality you can trust.",
+          "columns": [
+            {
+              "heading": "Shop",
+              "links": [
+                { "label": "New Arrivals", "href": "#" },
+                { "label": "Best Sellers", "href": "#" },
+                { "label": "Sale", "href": "#" },
+                { "label": "Collections", "href": "#" }
+              ]
+            },
+            {
+              "heading": "Help",
+              "links": [
+                { "label": "FAQ", "href": "#" },
+                { "label": "Shipping", "href": "#" },
+                { "label": "Returns", "href": "#" },
+                { "label": "Track Order", "href": "#" }
+              ]
+            },
+            {
+              "heading": "Company",
+              "links": [
+                { "label": "About Us", "href": "#" },
+                { "label": "Blog", "href": "#" },
+                { "label": "Careers", "href": "#" },
+                { "label": "Press", "href": "#" }
+              ]
+            },
+            {
+              "heading": "Legal",
+              "links": [
+                { "label": "Privacy Policy", "href": "#" },
+                { "label": "Terms of Service", "href": "#" },
+                { "label": "Cookie Policy", "href": "#" }
+              ]
+            }
+          ],
+          "socialLinks": [
+            { "platform": "instagram", "href": "#" },
+            { "platform": "twitter", "href": "#" },
+            { "platform": "facebook", "href": "#" }
+          ],
+          "copyrightText": "© 2026 YourBrand. All rights reserved.",
+          "bgColor": "#0f0f0f",
+          "accentColor": "#6366f1",
+          "showNewsletter": true,
+          "newsletterPlaceholder": "Enter your email",
+          "newsletterCtaLabel": "Subscribe",
+          "className": "",
+          "id": "Footer-f6c0be60-737f-455a-a880-e88e1460f5f5"
+        }
+      }
+    ],
+    "zones": {}
+  }
+}
